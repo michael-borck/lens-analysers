@@ -58,10 +58,26 @@ Every member exposes a `MANIFEST` constant, a `manifest` CLI subcommand, and a
 | `extensions` | file extensions it claims for auto-routing (`[]` if none) |
 | `auto_routable` | may `auto-analyser` route to it automatically? |
 | `produces` | result model name |
+| `repo`, `pypi` | optional; for non-Python members. `pypi: false` = not on PyPI |
 
 `auto-analyser` builds its routing table from these (HTTP/CLI discovery), excluding
 `auto_routable: false`, with a static `_ROUTES` map as the offline fallback. See
 ADR 0001 in the auto-analyser repo.
+
+### Membership is the contract, not the language
+
+A family member is anything that speaks the contract (HTTP `/analyse` + `/manifest`
++ `/health`, and/or the CLI), regardless of implementation language. Don't
+reimplement an existing engine in another language to "join the family" — expose the
+one you have. Members declare their manifest one of two ways, both read by
+`scripts/generate_family_table.py`:
+
+- **Python members** — a `MANIFEST` constant in `manifest.py`.
+- **Language-neutral members** — a `manifest.json` at the repo root.
+
+`cite-sight` is the first non-Python member: a TypeScript monorepo whose
+`cite-sight-core` engine is served by `cite-sight-server`, which exposes the
+contract routes; it ships a `manifest.json` (`auto_routable: false`, `pypi: false`).
 
 ## Composition & shared primitives
 
