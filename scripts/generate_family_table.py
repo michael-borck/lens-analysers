@@ -17,6 +17,7 @@ from __future__ import annotations
 
 import argparse
 import importlib.util
+import json
 import sys
 from pathlib import Path
 
@@ -26,7 +27,7 @@ START = "<!-- family-table:start -->"
 END = "<!-- family-table:end -->"
 GH = "https://github.com/michael-borck"
 PYPI = "https://pypi.org/project"
-EXCLUDE = (".venv", "site-packages", "/tests/", "/build/", "/dist/", "/.git/")
+EXCLUDE = (".venv", "site-packages", "node_modules", "/tests/", "/build/", "/dist/", "/.git/")
 
 # Editorial one-liners (the only hand-maintained part). Keyed by package name.
 BLURBS = {
@@ -41,6 +42,7 @@ BLURBS = {
     "conversation-analyser": "human-AI conversations — engagement + critical-thinking",
     "bundle-analyser": "folders & zips — analyse a collection of files",
     "auto-analyser": "any file — detects format and routes to the right tool",
+    "cite-sight": "citations & references — verify (Crossref/OpenAlex), DOI, format, cross-refs",
 }
 
 
@@ -62,6 +64,17 @@ def discover() -> list[dict]:
             continue
         m = _load_manifest(path)
         if m:
+            found.setdefault(m["name"], m)
+    # Language-neutral members (e.g. the TypeScript cite-sight) declare a
+    # manifest.json at their repo root instead of a Python manifest.py.
+    for path in ROOT.glob("*/manifest.json"):
+        if any(x in str(path) for x in EXCLUDE):
+            continue
+        try:
+            m = json.loads(path.read_text())
+        except Exception:
+            continue
+        if isinstance(m, dict) and m.get("name"):
             found.setdefault(m["name"], m)
     return list(found.values())
 
@@ -86,8 +99,14 @@ def build_table(manifests: list[dict]) -> str:
         name = m["name"]
         handles = BLURBS.get(name) or ", ".join(m.get("accepts", [])) or "—"
         exts = ", ".join(f"`{e}`" for e in m.get("extensions", [])) or "—"
-        links = f"[PyPI]({PYPI}/{name}/) · [repo]({GH}/{name})"
-        rows.append(f"| [{name}]({GH}/{name}) | {handles} | {exts} | {_routable(m)} | {links} |")
+        repo = m.get("repo") or f"{GH}/{name}"
+        link_parts = [f"[repo]({repo})"]
+        pypi = m.get("pypi", True)  # default Python member; False = not on PyPI
+        if pypi is not False:
+            url = pypi if isinstance(pypi, str) else f"{PYPI}/{name}/"
+            link_parts.insert(0, f"[PyPI]({url})")
+        links = " · ".join(link_parts)
+        rows.append(f"| [{name}]({repo}) | {handles} | {exts} | {_routable(m)} | {links} |")
     return "\n".join(rows)
 
 
