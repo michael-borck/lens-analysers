@@ -1,22 +1,9 @@
 # lens-analysers is a DOCS-ONLY umbrella. Each analyser/app lives in its own repo,
-# cloned here as an independent working copy and ignored by the umbrella.
-
-# Analyser packages (independent repos + PyPI)
-auto-analyser/
-bundle-analyser/
-code-analyser/
-conversation-analyser/
-document-analyser/
-git-analyser/
-image-analyser/
-records-analyser/
-speech-analyser/
-video-analyser/
-wordpress-analyser/
-
-# Apps built on the family (separate products)
-cite-sight/
-document-lens/
+# cloned here as an independent working copy. Ignore EVERY nested project by
+# default (so dropping a new repo in here needs no edit), and track only the docs.
+/*/
+!/docs/
+!/scripts/
 
 # Junk
 __pycache__/
