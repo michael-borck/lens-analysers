@@ -1,9 +1,6 @@
-# lens-analysers is a DOCS-ONLY umbrella. Each analyser/app lives in its own repo,
-# cloned here as an independent working copy. Ignore EVERY nested project by
-# default (so dropping a new repo in here needs no edit), and track only the docs.
-/*/
-!/docs/
-!/scripts/
+# lens-analysers is a DOCS-ONLY umbrella. It now lives as its own folder inside a
+# `lens/` workspace, alongside each analyser/app repo (they are siblings, not nested
+# here), so there are no nested projects to ignore — just track the docs and skip junk.
 
 # Junk
 __pycache__/

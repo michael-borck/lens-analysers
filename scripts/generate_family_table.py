@@ -21,7 +21,8 @@ import json
 import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent
+ROOT = Path(__file__).resolve().parent.parent  # the umbrella docs repo (holds README.md)
+WORKSPACE = ROOT.parent  # the workspace dir; every analyser repo is a sibling of the umbrella
 README = ROOT / "README.md"
 START = "<!-- family-table:start -->"
 END = "<!-- family-table:end -->"
@@ -59,7 +60,7 @@ def _load_manifest(path: Path) -> dict | None:
 
 def discover() -> list[dict]:
     found: dict[str, dict] = {}
-    for path in ROOT.glob("*/**/manifest.py"):
+    for path in WORKSPACE.glob("*/**/manifest.py"):
         if any(x in str(path) for x in EXCLUDE):
             continue
         m = _load_manifest(path)
@@ -67,7 +68,7 @@ def discover() -> list[dict]:
             found.setdefault(m["name"], m)
     # Language-neutral members (e.g. the TypeScript cite-sight) declare a
     # manifest.json at their repo root instead of a Python manifest.py.
-    for path in ROOT.glob("*/manifest.json"):
+    for path in WORKSPACE.glob("*/manifest.json"):
         if any(x in str(path) for x in EXCLUDE):
             continue
         try:

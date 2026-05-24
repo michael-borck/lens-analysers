@@ -89,10 +89,23 @@ pip install document-analyser conversation-analyser auto-analyser   # etc.
 
 ## Repository layout
 
+Everything lives in a local `lens/` **workspace** — a plain folder (not a git repo)
+that holds each project as an independent clone, side by side:
+
+```
+lens/                      ← workspace (not a repo)
+├── lens-analysers/        ← this repo: docs only (README, CONVENTIONS, docs/, scripts/)
+├── document-analyser/     ← each analyser/app is its own repo, beside the umbrella
+├── conversation-analyser/
+├── auto-analyser/
+└── …
+```
+
 This umbrella tracks only documentation (`README.md`, `CONVENTIONS.md`,
-`ANALYSER-FAMILY-UX-GOTCHAS.md`, `docs/`). Each analyser is an independent repo with
-its own issues, releases, and PyPI package — cloned alongside this one in a local
-`lens/` workspace and ignored here. Bidirectional links keep discovery easy.
+`ANALYSER-FAMILY-UX-GOTCHAS.md`, `docs/`). Each analyser is an independent repo with its
+own issues, releases, and PyPI package — no submodules, no nesting, so there are no
+cross-repo git dependencies. Bidirectional links keep discovery easy, and
+`scripts/generate_family_table.py` scans the sibling repos to rebuild the table above.
 
 ## Apps built on the family (`-lens`)
 
