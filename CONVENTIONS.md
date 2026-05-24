@@ -28,6 +28,10 @@ print(result.model_dump_json(indent=2))
 
 ## CLI
 
+- Built with **argparse + `lens_contract.run_contract_subcommands`** — the standard
+  (not typer/click): stdlib, no extra dep, and the shared helper is the single source
+  of truth for the `serve`/`manifest` dispatch. Surface those two in the argparse
+  `epilog` so `--help` still documents them.
 - Bare positional is "analyse": `name-analyser <path> [--json]`.
 - Human-readable summary by default; `--json` prints `model_dump_json(indent=2)` and
   **nothing else** to stdout. Diagnostics/progress/download chatter → stderr only.
