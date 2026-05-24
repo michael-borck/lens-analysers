@@ -36,11 +36,11 @@ print(result.model_dump_json(indent=2))
 
 ## HTTP API
 
-Module-level `app` in `api.py`/`app.py`, launched by the `serve` subcommand via
-`uvicorn.run("pkg.api:app", ...)`. Endpoints:
+Module-level `app` in **`api.py`** (the standard — not `app.py` or `main.py`),
+launched by the `serve` subcommand via `uvicorn.run("pkg.api:app", ...)`. Endpoints:
 
-- `GET /health` — status + version
-- `GET /manifest` — the capability manifest
+- `GET /health` — status + version  (from `lens_contract.add_contract_routes`)
+- `GET /manifest` — the capability manifest  (from `lens_contract.add_contract_routes`)
 - `POST /analyse` — multipart file upload, `response_model=<Name>Analysis`
 
 Ports: document 8000, speech 8001, video 8002, records 8003, code 8004,
@@ -48,6 +48,20 @@ wordpress 8005, image 8006, git 8007, bundle 8008, conversation 8009.
 
 `fastapi`, `uvicorn[standard]`, `python-multipart`, `rich` are **core**
 dependencies (serve + CLI are always available).
+
+**Cross-cutting serving concerns** (opt-in, one consistent implementation in
+`lens-contract`, so they don't drift between members):
+
+- **CORS** — `lens_contract.add_cors(app, env_prefix="NAME_ANALYSER")`. Any member
+  becomes browser/Electron-frontable via env vars (`NAME_ANALYSER_MODE=desktop` or
+  `NAME_ANALYSER_ALLOWED_ORIGINS`); never defaults to `*`. Lean/CLI-only members just
+  don't call it.
+- **Rate limiting** — `lens_contract.add_rate_limit(app, env_prefix="NAME_ANALYSER")`,
+  opt-in via `NAME_ANALYSER_RATE_LIMIT_ENABLED=true`; needs the `lens-contract[ratelimit]`
+  extra.
+
+Outliers still to converge: `document-analyser` (`main.py` → `api.py`),
+`image-analyser` / `speech-analyser` (`app.py` → `api.py`, and onto `add_cors`/`add_rate_limit`).
 
 ## Capability manifest
 
