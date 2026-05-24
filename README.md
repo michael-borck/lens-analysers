@@ -72,6 +72,8 @@ full spec. In brief:
 - **HTTP:** `GET /health`, `GET /manifest`, `POST /analyse` (file upload). Ports 8000–8009.
 - **Manifest:** every member exposes a `MANIFEST` (name, version, role, accepts, extensions, `auto_routable`, produces) as a constant, a CLI subcommand, and `/manifest`. `auto-analyser` builds its routing table from these.
 
+Python members implement this contract via **[lens-contract](https://github.com/michael-borck/lens-contract)** — a small shared library (`make_manifest`, `add_contract_routes`/`make_app`, `upload_tempfile`, `run_contract_subcommands`) so the boilerplate lives in one place instead of being copy-pasted per repo. It's infrastructure (`role: library`), not an analyser, so it doesn't appear in the family table above. Non-Python members (e.g. cite-sight) implement the same contract themselves.
+
 ## Routing
 
 `auto-analyser` discovers each analyser's manifest (via HTTP or CLI) to learn what it
@@ -95,6 +97,7 @@ that holds each project as an independent clone, side by side:
 ```
 lens/                      ← workspace (not a repo)
 ├── lens-analysers/        ← this repo: docs only (README, CONVENTIONS, docs/, scripts/)
+├── lens-contract/         ← shared contract library used by the Python members
 ├── document-analyser/     ← each analyser/app is its own repo, beside the umbrella
 ├── conversation-analyser/
 ├── auto-analyser/

@@ -4,6 +4,11 @@ The shared shape every `-analyser` package converges on. New members follow this
 existing ones move toward it. Field notes on current divergences live in
 [ANALYSER-FAMILY-UX-GOTCHAS.md](ANALYSER-FAMILY-UX-GOTCHAS.md).
 
+Python members get this contract from the **[lens-contract](https://github.com/michael-borck/lens-contract)**
+library (`make_manifest`, `add_contract_routes`/`make_app`, `run_contract_subcommands`)
+instead of re-implementing the boilerplate. This document stays the language-neutral
+spec that `lens-contract` — and non-Python members like cite-sight — implement.
+
 ## Naming
 
 - **`-analyser`** = a reusable engine (this contract). British spelling in class
