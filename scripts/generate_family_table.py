@@ -34,7 +34,7 @@ EXCLUDE = (".venv", "site-packages", "node_modules", "/tests/", "/build/", "/dis
 BLURBS = {
     "document-analyser": "PDF, DOCX, PPTX, TXT, MD — text + readability",
     "speech-analyser": "audio/video — transcript + speech metrics",
-    "video-analyser": "video — frames, scenes, visual quality (Gradio UI)",
+    "video-analyser": "video — frames, scenes, transcript + visual quality",
     "records-analyser": "CSV, Excel, SQLite, Parquet, JSON — data profiling",
     "code-analyser": "source code — style, complexity, quality",
     "image-analyser": "images — metadata, quality, OCR, captions, barcodes",
@@ -58,14 +58,33 @@ def _load_manifest(path: Path) -> dict | None:
         return None
 
 
+def _pkg_version(manifest_path: Path) -> str:
+    """Read a member's current version from its repo's pyproject.toml.
+
+    Reliable + offline (the manifest's own `version` is the *installed* version,
+    which is "0.0.0" when the package isn't installed in the generator's env). Walks
+    up from the manifest file to the first dir holding a pyproject.toml.
+    """
+    for parent in manifest_path.parents:
+        pp = parent / "pyproject.toml"
+        if pp.exists():
+            for line in pp.read_text().splitlines():
+                s = line.strip()
+                if s.startswith("version") and "=" in s:
+                    return s.split("=", 1)[1].strip().strip('"').strip("'")
+            break
+    return "—"
+
+
 def discover() -> list[dict]:
     found: dict[str, dict] = {}
     for path in WORKSPACE.glob("*/**/manifest.py"):
         if any(x in str(path) for x in EXCLUDE):
             continue
         m = _load_manifest(path)
-        if m:
-            found.setdefault(m["name"], m)
+        if m and m["name"] not in found:
+            m["_display_version"] = _pkg_version(path)
+            found[m["name"]] = m
     # Language-neutral members (e.g. the TypeScript cite-sight) declare a
     # manifest.json at their repo root instead of a Python manifest.py.
     for path in WORKSPACE.glob("*/manifest.json"):
@@ -75,8 +94,9 @@ def discover() -> list[dict]:
             m = json.loads(path.read_text())
         except Exception:
             continue
-        if isinstance(m, dict) and m.get("name"):
-            found.setdefault(m["name"], m)
+        if isinstance(m, dict) and m.get("name") and m["name"] not in found:
+            m["_display_version"] = str(m.get("version") or "—")
+            found[m["name"]] = m
     return list(found.values())
 
 
@@ -93,11 +113,12 @@ def _sort_key(m: dict) -> tuple:
 
 def build_table(manifests: list[dict]) -> str:
     rows = [
-        "| Package | Handles | Extensions | Routable | Links |",
-        "|---|---|---|---|---|",
+        "| Package | Version | Handles | Extensions | Routable | Links |",
+        "|---|---|---|---|---|---|",
     ]
     for m in sorted(manifests, key=_sort_key):
         name = m["name"]
+        ver = m.get("_display_version", "—")
         handles = BLURBS.get(name) or ", ".join(m.get("accepts", [])) or "—"
         exts = ", ".join(f"`{e}`" for e in m.get("extensions", [])) or "—"
         repo = m.get("repo") or f"{GH}/{name}"
@@ -107,7 +128,7 @@ def build_table(manifests: list[dict]) -> str:
             url = pypi if isinstance(pypi, str) else f"{PYPI}/{name}/"
             link_parts.insert(0, f"[PyPI]({url})")
         links = " · ".join(link_parts)
-        rows.append(f"| [{name}]({repo}) | {handles} | {exts} | {_routable(m)} | {links} |")
+        rows.append(f"| [{name}]({repo}) | {ver} | {handles} | {exts} | {_routable(m)} | {links} |")
     return "\n".join(rows)
 
 
