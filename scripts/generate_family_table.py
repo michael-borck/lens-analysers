@@ -38,6 +38,7 @@ BLURBS = {
     "records-analyser": "CSV, Excel, SQLite, Parquet, JSON — data profiling",
     "spreadsheet-analyser": "Excel — formula logic, dependencies, error cells, hygiene smells",
     "site-analyser": "deployed URL or static-site dir — accessibility, structure, SEO, links, validity",
+    "diagram-analyser": "mermaid / PlantUML / Graphviz / drawio — nodes, edges, cycles, depth, naming",
     "code-analyser": "source code — style, complexity, quality",
     "image-analyser": "images — metadata, quality, OCR, captions, barcodes",
     "wordpress-analyser": "WordPress PHP — hooks, API usage, quality",
