@@ -36,6 +36,7 @@ BLURBS = {
     "speech-analyser": "audio/video — transcript + speech metrics",
     "video-analyser": "video — frames, scenes, transcript + visual quality",
     "records-analyser": "CSV, Excel, SQLite, Parquet, JSON — data profiling",
+    "spreadsheet-analyser": "Excel — formula logic, dependencies, error cells, hygiene smells",
     "code-analyser": "source code — style, complexity, quality",
     "image-analyser": "images — metadata, quality, OCR, captions, barcodes",
     "wordpress-analyser": "WordPress PHP — hooks, API usage, quality",
