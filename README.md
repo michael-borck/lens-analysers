@@ -52,6 +52,10 @@ source of truth, so it never drifts. Versions are each package's current release
 follow the PyPI links to install. Every Python member is built on the shared
 [lens-contract](https://github.com/michael-borck/lens-contract) library.*
 
+Possible future members (a backlog, not commitments) live in
+[CANDIDATE-MEMBERS.md](CANDIDATE-MEMBERS.md) — weighted toward *process* signals
+(revision history, activity logs) where the family is currently thin.
+
 ## How they compose
 
 The engines are single-purpose; chain them for richer tasks:
