@@ -32,7 +32,7 @@ EXCLUDE = (".venv", "site-packages", "node_modules", "/tests/", "/build/", "/dis
 
 # Editorial one-liners (the only hand-maintained part). Keyed by package name.
 BLURBS = {
-    "document-analyser": "PDF, DOCX, PPTX, TXT, MD — text + readability",
+    "document-analyser": "PDF, DOCX, PPTX, TXT, MD — text, readability, .pptx slide-design",
     "speech-analyser": "audio/video — transcript + speech metrics",
     "video-analyser": "video — frames, scenes, transcript + visual quality",
     "records-analyser": "CSV, Excel, SQLite, Parquet, JSON — data profiling",
