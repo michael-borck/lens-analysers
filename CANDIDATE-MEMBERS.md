@@ -49,7 +49,7 @@ axis; process is the complementary one.
 
 | Candidate | Ingests | Example signals | Distinct because |
 |---|---|---|---|
-| **spreadsheet-analyser** | `.xlsx` / `.ods` **as formula logic** | formula complexity, cell-dependency graph, error patterns, named ranges, model structure | `records-analyser` profiles the *data values*; this reads the spreadsheet's *reasoning*. Gap for business/accounting/finance modelling. |
+| **spreadsheet-analyser** | `.xlsx` / `.ods` **as formula logic** (openpyxl, `data_only=False`) | formula complexity, cell-dependency graph, error cells (`#REF!`), named ranges, multi-sheet model structure | `records-analyser` reads `.xlsx` via `pd.read_excel` → **computed values only**, profiled as a data table; it never sees the formulas. This reads the spreadsheet's *reasoning*. **Same bytes as records-analyser** (`.xlsx` already auto-routes there), so this would be **explicit-only** (`auto_routable: false`) — a formula-logic *interpretation* — or a `--formulas` mode of records-analyser. Gap for business/accounting/finance modelling. |
 | **diagram-analyser** | structured diagrams (`.mmd`/mermaid, drawio, PlantUML, `.puml`) | entities, relationships, correctness/consistency vs a brief | `image-analyser` only sees raster pixels; these have semantic structure. Gap for CS/IS design units. |
 | **site-analyser** | a deployed site / URL | WCAG accessibility, structure, link health, performance | `code-analyser` reads source files, not the *rendered/deployed* site. Good for web-dev assessment. |
 
