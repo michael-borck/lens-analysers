@@ -76,6 +76,8 @@ full spec. In brief:
 
 Python members implement this contract via **[lens-contract](https://github.com/michael-borck/lens-contract)** — a small shared library (`make_manifest`, `add_contract_routes`/`make_app`, `upload_tempfile`, `run_contract_subcommands`) so the boilerplate lives in one place instead of being copy-pasted per repo. It's infrastructure (`role: library`), not an analyser, so it doesn't appear in the family table above. Non-Python members (e.g. cite-sight) implement the same contract themselves.
 
+Building a new analyser? See the **[ADDING-A-MEMBER.md](ADDING-A-MEMBER.md)** checklist.
+
 ## Routing
 
 `auto-analyser` discovers each analyser's manifest (via HTTP or CLI) to learn what it

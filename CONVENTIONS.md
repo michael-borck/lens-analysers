@@ -9,6 +9,11 @@ library (`make_manifest`, `add_contract_routes`/`make_app`, `run_contract_subcom
 instead of re-implementing the boilerplate. This document stays the language-neutral
 spec that `lens-contract` — and non-Python members like cite-sight — implement.
 
+> **Building a new member?** Follow the step-by-step
+> **[ADDING-A-MEMBER.md](ADDING-A-MEMBER.md)** checklist — it turns this spec into an
+> ordered recipe (naming, layout, deps, port, manifest/api/cli wiring, publish) and
+> lists the gotchas already paid for.
+
 ## Naming
 
 - **`-analyser`** = a reusable engine (this contract). British spelling in class
