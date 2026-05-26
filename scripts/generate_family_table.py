@@ -41,6 +41,7 @@ BLURBS = {
     "diagram-analyser": "mermaid / PlantUML / Graphviz / drawio — nodes, edges, cycles, depth, naming",
     "provenance-analyser": "document metadata — creator app, editing time, authorship, AI-gen markers",
     "reflection-analyser": "reflective writing — metacognition, criticality, depth bands",
+    "revision-analyser": ".docx tracked-changes — drafting trajectory, paste-burst detection",
     "code-analyser": "source code — style, complexity, quality",
     "image-analyser": "images — metadata, quality, OCR, captions, barcodes",
     "wordpress-analyser": "WordPress PHP — hooks, API usage, quality",

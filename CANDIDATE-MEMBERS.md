@@ -42,8 +42,9 @@ axis; process is the complementary one.
 
 | Candidate | Ingests | Example signals | Distinct because |
 |---|---|---|---|
-| **revision-analyser** | doc version history (Google Docs export, Word tracked-changes, or a sequence of drafts) | drafting trajectory, revision depth, growth-over-time, **paste-burst detection** (large insertions ≈ copy/AI) | reads *how a document evolved*, not its final text. The single strongest written-work process signal; nothing covers it. |
-| **activity-analyser** | LMS activity export (Moodle / Canvas / Blackboard) | engagement timeline, time-on-task, submission timing, resource access | `records-analyser` profiles the raw CSV; this is the domain layer that turns it into *engagement* signals. |
+| **activity-analyser** | LMS activity export (Moodle / Canvas / Blackboard) | engagement timeline, time-on-task, submission timing, resource access | `records-analyser` profiles the raw CSV; this is the domain layer that turns it into *engagement* signals. Deferred until real anonymised LMS data is available to test against. |
+
+_revision-analyser v1 shipped (Word tracked-changes); v2 work — Google Docs revision-history via Drive API, and draft-sequence comparison — remains on the frontier but isn't a separate candidate._
 
 ## Product-signal candidates
 
@@ -67,6 +68,7 @@ New family members shipped:
 - **diagram-analyser** → [v0.1.0](https://pypi.org/project/diagram-analyser/) (2026-05-26). mermaid / PlantUML / Graphviz / drawio text formats (auto-routable) + optional `[vision]` extra for image diagrams via Anthropic Claude Vision.
 - **provenance-analyser** → [v0.1.0](https://pypi.org/project/provenance-analyser/) (2026-05-26). Document metadata across `.docx`/`.pdf`/`.pptx`/`.xlsx` — creator app, total editing time, revision count, authorship, conservative AI-gen markers. Generalises image-analyser's C2PA pattern to docs. Explicit-only.
 - **reflection-analyser** → [v0.1.0](https://pypi.org/project/reflection-analyser/) (2026-05-26). Lexicon-based reflective-writing analysis (metacognition / criticality / evidence / affect / forward-looking) → Moon-style depth band. Explicit-only; composes on document-analyser via `[documents]` for binary inputs.
+- **revision-analyser** → [v0.1.0](https://pypi.org/project/revision-analyser/) (2026-05-26). Reads `.docx` tracked changes directly from `word/document.xml` (pure stdlib — no python-docx dep). Paste-burst detection, per-author rollups, timeline, multi-author/single-author/short-timeline flags. v1 = Word tracked-changes only; Google Docs revision-history (Drive API) and draft-sequence comparison are v2.
 
 Cross-member extensions that complete the cascade chain:
 
