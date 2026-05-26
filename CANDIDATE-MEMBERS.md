@@ -50,11 +50,11 @@ axis; process is the complementary one.
 | Candidate | Ingests | Example signals | Distinct because |
 |---|---|---|---|
 | **diagram-analyser** | structured diagrams (`.mmd`/mermaid, drawio, PlantUML, `.puml`); image diagrams via vision | entities, relationships, orphan nodes, cycles, correctness/consistency vs a brief | `image-analyser` only sees raster pixels; these have semantic structure. Gap for CS/IS design units. **Planned** ([plan](docs/superpowers/plans/2026-05-26-product-analysers-plan.md)). |
-| **site-analyser** | a deployed site / URL, or a local static-site dir | WCAG accessibility, structure, link health, performance, framework detection, validity | `code-analyser` reads source files, not the *rendered/deployed* site. Good for web-dev assessment. **Planned** ([plan](docs/superpowers/plans/2026-05-26-product-analysers-plan.md)). |
 
 ### Graduated from candidate
 
 - **spreadsheet-analyser** → shipped as [v0.1.0](https://pypi.org/project/spreadsheet-analyser/) (2026-05-26). Explicit-only formula-logic interpretation; `.xlsx` continues to auto-route to records-analyser for data values.
+- **site-analyser** → shipped as [v0.1.0](https://pypi.org/project/site-analyser/) (2026-05-26). Hybrid pure-Python core (httpx + bs4 + html5lib) with optional Lighthouse/vnu shell-out. Accepts a URL or a local static-site dir.
 
 ## Deliberately *not* separate members (deepen the existing one instead)
 

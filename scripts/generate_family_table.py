@@ -37,6 +37,7 @@ BLURBS = {
     "video-analyser": "video — frames, scenes, transcript + visual quality",
     "records-analyser": "CSV, Excel, SQLite, Parquet, JSON — data profiling",
     "spreadsheet-analyser": "Excel — formula logic, dependencies, error cells, hygiene smells",
+    "site-analyser": "deployed URL or static-site dir — accessibility, structure, SEO, links, validity",
     "code-analyser": "source code — style, complexity, quality",
     "image-analyser": "images — metadata, quality, OCR, captions, barcodes",
     "wordpress-analyser": "WordPress PHP — hooks, API usage, quality",
