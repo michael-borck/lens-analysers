@@ -54,7 +54,7 @@ launched by the `serve` subcommand via `uvicorn.run("pkg.api:app", ...)`. Endpoi
 
 Ports: document 8000, speech 8001, video 8002, records 8003, code 8004,
 wordpress 8005, image 8006, git 8007, bundle 8008, conversation 8009, auto 8010,
-spreadsheet 8011, site 8012, diagram 8013, provenance 8014.
+spreadsheet 8011, site 8012, diagram 8013, provenance 8014, reflection 8015.
 
 The orchestrator (`auto-analyser`) also serves the contract: its `POST /analyse`
 detects a file's format and forwards it to the right member, returning that

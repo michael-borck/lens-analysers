@@ -44,7 +44,6 @@ axis; process is the complementary one.
 |---|---|---|---|
 | **revision-analyser** | doc version history (Google Docs export, Word tracked-changes, or a sequence of drafts) | drafting trajectory, revision depth, growth-over-time, **paste-burst detection** (large insertions ≈ copy/AI) | reads *how a document evolved*, not its final text. The single strongest written-work process signal; nothing covers it. |
 | **activity-analyser** | LMS activity export (Moodle / Canvas / Blackboard) | engagement timeline, time-on-task, submission timing, resource access | `records-analyser` profiles the raw CSV; this is the domain layer that turns it into *engagement* signals. |
-| **reflection-analyser** | reflective writing / learning journals | metacognition markers, criticality, depth of reflection | a *content interpretation* distinct from `document-analyser`'s readability; UDL/process-aligned (likely `auto_routable: false`, like conversation-analyser). |
 
 ## Product-signal candidates
 
@@ -67,6 +66,7 @@ New family members shipped:
 - **site-analyser** → [v0.1.0](https://pypi.org/project/site-analyser/) (2026-05-26). Hybrid pure-Python core (httpx + bs4 + html5lib) with optional Lighthouse/vnu shell-out. Accepts a URL or a local static-site dir.
 - **diagram-analyser** → [v0.1.0](https://pypi.org/project/diagram-analyser/) (2026-05-26). mermaid / PlantUML / Graphviz / drawio text formats (auto-routable) + optional `[vision]` extra for image diagrams via Anthropic Claude Vision.
 - **provenance-analyser** → [v0.1.0](https://pypi.org/project/provenance-analyser/) (2026-05-26). Document metadata across `.docx`/`.pdf`/`.pptx`/`.xlsx` — creator app, total editing time, revision count, authorship, conservative AI-gen markers. Generalises image-analyser's C2PA pattern to docs. Explicit-only.
+- **reflection-analyser** → [v0.1.0](https://pypi.org/project/reflection-analyser/) (2026-05-26). Lexicon-based reflective-writing analysis (metacognition / criticality / evidence / affect / forward-looking) → Moon-style depth band. Explicit-only; composes on document-analyser via `[documents]` for binary inputs.
 
 Cross-member extensions that complete the cascade chain:
 
