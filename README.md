@@ -47,7 +47,7 @@ Within the engines there's a second distinction that matters for routing:
 | [revision-analyser](https://github.com/michael-borck/revision-analyser) | 0.1.0 | .docx tracked-changes — drafting trajectory, paste-burst detection | `.docx` | explicit | [PyPI](https://pypi.org/project/revision-analyser/) · [repo](https://github.com/michael-borck/revision-analyser) |
 | [site-analyser](https://github.com/michael-borck/site-analyser) | 0.1.0 | deployed URL or static-site dir — accessibility, structure, SEO, links, validity | — | explicit | [PyPI](https://pypi.org/project/site-analyser/) · [repo](https://github.com/michael-borck/site-analyser) |
 | [spreadsheet-analyser](https://github.com/michael-borck/spreadsheet-analyser) | 0.1.0 | Excel — formula logic, dependencies, error cells, hygiene smells | `.xlsx`, `.xlsm` | explicit | [PyPI](https://pypi.org/project/spreadsheet-analyser/) · [repo](https://github.com/michael-borck/spreadsheet-analyser) |
-| [auto-analyser](https://github.com/michael-borck/auto-analyser) | 0.5.3 | any file — detects format and routes to the right tool | — | orchestrator | [PyPI](https://pypi.org/project/auto-analyser/) · [repo](https://github.com/michael-borck/auto-analyser) |
+| [auto-analyser](https://github.com/michael-borck/auto-analyser) | 0.6.0 | any file — detects format and routes to the right tool | — | orchestrator | [PyPI](https://pypi.org/project/auto-analyser/) · [repo](https://github.com/michael-borck/auto-analyser) |
 | [bundle-analyser](https://github.com/michael-borck/bundle-analyser) | 0.4.0 | folders & zips — analyse a collection of files | — | orchestrator | [PyPI](https://pypi.org/project/bundle-analyser/) · [repo](https://github.com/michael-borck/bundle-analyser) |
 
 <!-- family-table:end -->
