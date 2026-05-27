@@ -304,9 +304,76 @@ exports → engagement timeline / time-on-task) — would land squarely in Q4.
 
 ---
 
+## Unit-level coverage — designing assessments, not just grading them
+
+So far this doc has read the map *reactively*: a submission arrives, pick
+the right signals. The same map is also useful *prescriptively* — for
+designing a unit's assessments **before** any student work exists.
+
+The diagnostic question shifts: instead of *"which signals do I need for
+this submission?"*, you ask *"across all my unit's assessments combined,
+which quadrants do students touch?"*. A well-designed unit has students
+encountering all four quadrants by the end of the semester — not
+necessarily within each individual assessment.
+
+**Example — auditing a unit's assessment plan:**
+
+```
+Unit: ISYS1001 — 4 assessments
+                              Q1   Q2   Q3   Q4
+A1: Programming lab           ●●   ·    ·    ·    ⚠ single-quadrant
+A2: Design portfolio          ·    ●●   ·    ·    ⚠ single-quadrant
+A3: Final project + journal   ●    ●    ●    ●    ✓ balanced
+A4: Reflective essay          ·    ●    ●    ●    ✓ triangulated
+                              ──   ──   ──   ──
+Unit coverage:                2    3    2    2    ✓ all 4 quadrants reached
+
+Recommendations:
+- A1 + A2 in isolation are gameable. Either add a process artefact to A1
+  (commit history, dev log) or accept the risk because A3+A4 carry the
+  triangulation weight at the unit level.
+- The unit as a whole is well-balanced — students touch all four
+  quadrants across the semester.
+```
+
+The shift from per-assessment to per-unit changes what "robustness" means.
+A single Q1-only programming lab can be defensible if the same students
+do a Q4 reflection elsewhere in the unit. What matters is **cumulative
+exposure across the assessment plan**, not isolated triangulation in every
+piece.
+
+This kind of unit-level audit is intentionally *not* tooled in the family
+right now — see [Related tools](#related-tools-for-assessment-design)
+below for what already exists in this space and why we haven't built
+another.
+
+### Related tools for assessment design
+
+The analyser family is **reactive** — it takes student submissions and
+produces signals. Adjacent tools cover the **prescriptive** side:
+
+- **[udl-lens](https://github.com/michael-borck/udl-lens)** — a web tool
+  that audits assessments against the UDL Guidelines 3.0. AI pre-fills
+  checkpoint ratings from briefs, produces a radar chart and PDF report.
+  It's a *complementary* lens: UDL asks "is this assessment inclusive and
+  accessible?", the quadrant map asks "what kind of evidence does it
+  actually generate?". A unit can rate well on one and poorly on the
+  other — both lenses matter.
+- **[curriculum-curator](https://github.com/michael-borck/curriculum-curator)**
+  — content-creation tool for authoring curriculum (9 teaching
+  philosophies, AI-assisted, exports to LMS formats). Useful when you're
+  *building* assessments, not auditing them.
+
+A dedicated "quadrant-audit" tool isn't on the roadmap — the framework is
+captured here in docs, and if real educator demand emerges, the natural
+home would be a second lens inside `udl-lens` (same workflow, same
+audience, same input format) rather than a standalone build.
+
+---
+
 ## How to use this doc
 
-**As an educator designing an assessment:**
+**As an educator designing a single assessment:**
 
 1. Decide what *kind* of question you want the assessment to answer — pick
    1–4 quadrants from the [quadrant table](#the-two-axes).
@@ -318,6 +385,16 @@ exports → engagement timeline / time-on-task) — would land squarely in Q4.
    quadrant assessments are gameable.
 5. For consequential decisions, never act on a ⚠ high-stakes flag alone —
    always read it in the context of the other quadrants.
+
+**As an educator designing a unit's assessment plan:**
+
+1. List the assessments and tag each with the quadrants it taps.
+2. Sum coverage across the unit — see the
+   [unit-level audit example](#unit-level-coverage--designing-assessments-not-just-grading-them).
+3. Any quadrant left empty across the whole unit is a coverage gap worth
+   considering.
+4. Pair this lens with `udl-lens` (UDL audit per assessment) — neither
+   replaces the other.
 
 **As a developer building a new member:**
 
