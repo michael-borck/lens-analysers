@@ -62,6 +62,10 @@ Possible future members (a backlog, not commitments) live in
 [CANDIDATE-MEMBERS.md](CANDIDATE-MEMBERS.md) — weighted toward *process* signals
 (revision history, activity logs) where the family is currently thin.
 
+For picking the right *combination* of members for an assessment design — the
+two-axis Product/Process × Convergent/Divergent map, worked examples, and
+named bundles — see **[ASSESSMENT-MAP.md](docs/ASSESSMENT-MAP.md)**.
+
 ## How they compose
 
 The engines are single-purpose; chain them for richer tasks:
@@ -70,6 +74,11 @@ The engines are single-purpose; chain them for richer tasks:
 - audio chat → **speech-analyser** (transcribe) → **conversation-analyser**
 - a folder of mixed files → **bundle-analyser** → **auto-analyser** per file
 - any single file → **auto-analyser** → the right engine
+
+For ready-made compositions matched to common assessment shapes (e.g. an
+`authentic-essay` bundle that runs document + provenance + revision + reflection
+in parallel), see the bundles section of
+[ASSESSMENT-MAP.md](docs/ASSESSMENT-MAP.md#bundles--first-class-presets).
 
 Text extraction (binary → text) has one canonical home: `document_analyser.extract_text()`.
 Other analysers import it rather than re-implementing extraction.

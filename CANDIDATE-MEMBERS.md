@@ -36,6 +36,11 @@ polished document (`document-analyser`) + a thin revision trail (`revision-analy
 different story than the same document with a rich drafting history. Product is one
 axis; process is the complementary one.
 
+> See **[ASSESSMENT-MAP.md](docs/ASSESSMENT-MAP.md)** for the full
+> two-axis framework (Product/Process × Convergent/Divergent), per-quadrant
+> member positioning, worked examples, and the **named bundles** that
+> codify common assessment compositions.
+
 ---
 
 ## Process-signal candidates (the frontier)
