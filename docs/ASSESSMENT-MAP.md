@@ -10,6 +10,16 @@ single signal — they're **triangulated** across the family. This document
 names the axes, plots each member, calls out high-stakes signals, and
 proposes named bundles for common assessment shapes.
 
+The doc carries **two complementary views** at different levels of detail:
+
+| View | Question it answers | Best for |
+|---|---|---|
+| **[Simple view](#the-simple-view--product--process)** — Product × Process | *"Across my unit's assessments, am I generating both kinds of signal?"* | Course coordinators · workshop / PD / faculty conversations |
+| **[Detailed view](#the-detailed-view--tool-signals)** — Convergent/Divergent × Product/Process | *"For this specific assessment, which exact tool generates which kind of signal?"* | Tool selection · bundle design · signal audit |
+
+The simple view is the front door. The detailed view is for picking
+specific tools. Same family, two reading depths.
+
 > See also: [CONVENTIONS.md](../CONVENTIONS.md) (contract spec) ·
 > [ADDING-A-MEMBER.md](../ADDING-A-MEMBER.md) (how to build a new member) ·
 > [CANDIDATE-MEMBERS.md](../CANDIDATE-MEMBERS.md) (the backlog) ·
@@ -17,7 +27,98 @@ proposes named bundles for common assessment shapes.
 
 ---
 
-## The two axes
+## The simple view — Product × Process
+
+The starting question for unit-level assessment design: **does each
+assessment generate signal on both dimensions, and does the unit as a whole
+span both?** Two axes, both "more is better":
+
+- **X — Product:** how much signal comes from the *artefact* the student
+  submits (low → high coverage of the work itself).
+- **Y — Process:** how much signal comes from *how the artefact came to be*
+  (low → high coverage of the trajectory, authoring, revision, reflection).
+
+```
+                          HIGH PROCESS
+                               │
+        ┌─ Process-heavy ──────┼── IDEAL (fuller-spectrum) ──┐
+        │  (process-only,      │  (artefact + drafting        │
+        │   no artefact to     │   trail + reflection)        │
+        │   show)              │                              │
+        │                      │  e.g. major project + git    │
+        │  e.g. reflective     │  history + reflection writeup│
+        │  journal alone       │                              │
+        ├──────────────────────┼──────────────────────────────┤
+        │                      │                              │
+        │  WEAK                │  Output-only                 │
+        │  (almost no signal   │  (graded on the artefact     │
+        │   from either        │   alone)                     │
+        │   dimension)         │                              │
+        │                      │  e.g. essay graded just on   │
+        │  e.g. one-line       │  the text · timed skill-     │
+        │  multiple choice     │  check exam                  │
+        │                      │                              │
+        └─ Low Process ────────┼── High Process ──────────────┘
+                               │
+                          LOW PROCESS
+              ←─ LOW PRODUCT ────── HIGH PRODUCT ─→
+```
+
+### "Ideal = top-right" — but at the *unit* level, not per assessment
+
+The top-right cell is fuller-spectrum: the assessment generates substantial
+signal on both axes, so it's hard to game and easy to triangulate. But a
+single assessment **doesn't need to live there**. A timed skill-check
+(bottom-right, output-only) is a legitimate design when it sits inside a
+unit that *also* includes a reflective journal (top-left, process-heavy) and
+a major project + writeup (top-right, fuller-spectrum). The skill-check
+isn't broken; it's playing a specific role.
+
+What matters is **cumulative coverage across the unit**. Plot each
+assessment as a dot on the quadrant. If the dots cluster in one cell —
+especially bottom-right (output-only) or bottom-left (weak) — the unit is
+unbalanced. If they spread across cells, the unit hits both dimensions
+across the semester.
+
+### Example — a unit plotted
+
+The same ISYS1001 example used [below in detail](#unit-level-coverage--detailed-breakdown),
+read as the simple view:
+
+```
+        HIGH PROCESS
+              │
+              │       ● A3  ● A4         ← project + journal; reflective essay
+              │
+              │
+        ──────┼─────────────────
+              │
+              │
+              │       ● A1  ● A2         ← programming lab; design portfolio
+              │
+        LOW PROCESS
+   ←─ LOW PRODUCT ──── HIGH PRODUCT ─→
+```
+
+The diagnostic is immediate: the unit reaches top-right (A3 + A4 carry the
+triangulation weight) so the cumulative coverage is fine. The absence of any
+dot in the *left* half is informative but not damning — every assessment in
+this unit produces a real artefact, so nothing is purely process-only.
+
+A red-flag pattern in this view would be **all four assessments in
+bottom-right** (output-only) or **the whole cluster in one cell**.
+
+> The simple view tells you **whether** to add process or product signal to
+> the unit. To decide **which** specific signals (and which tools generate
+> them), drop down to the detailed view below.
+
+---
+
+## The detailed view — tool signals
+
+Where the simple view treats Product and Process as scalar dimensions, the
+detailed view splits each into two interpretive frames — giving four
+distinct signal *types* that map to specific tools in the family.
 
 **X — what's being read:** *Product* (the artifact submitted) ↔ *Process*
 (how the artifact came to be).
@@ -304,48 +405,45 @@ exports → engagement timeline / time-on-task) — would land squarely in Q4.
 
 ---
 
-## Unit-level coverage — designing assessments, not just grading them
+## Unit-level coverage — detailed breakdown
 
-So far this doc has read the map *reactively*: a submission arrives, pick
-the right signals. The same map is also useful *prescriptively* — for
-designing a unit's assessments **before** any student work exists.
+The [simple view](#the-simple-view--product--process) above answers
+*"does the unit reach top-right?"* at a glance. This section is the
+deeper read: for each assessment, *which* of the four detailed quadrants
+it touches, and what the per-quadrant unit coverage looks like.
 
-The diagnostic question shifts: instead of *"which signals do I need for
-this submission?"*, you ask *"across all my unit's assessments combined,
-which quadrants do students touch?"*. A well-designed unit has students
-encountering all four quadrants by the end of the semester — not
-necessarily within each individual assessment.
-
-**Example — auditing a unit's assessment plan:**
+Same ISYS1001 example, read through the four detailed quadrants:
 
 ```
 Unit: ISYS1001 — 4 assessments
                               Q1   Q2   Q3   Q4
-A1: Programming lab           ●●   ·    ·    ·    ⚠ single-quadrant
-A2: Design portfolio          ·    ●●   ·    ·    ⚠ single-quadrant
-A3: Final project + journal   ●    ●    ●    ●    ✓ balanced
-A4: Reflective essay          ·    ●    ●    ●    ✓ triangulated
+A1: Programming lab           ●●   ·    ·    ·    output-only (simple view)
+A2: Design portfolio          ·    ●●   ·    ·    output-only (simple view)
+A3: Final project + journal   ●    ●    ●    ●    top-right (simple view)
+A4: Reflective essay          ·    ●    ●    ●    top-right (simple view)
                               ──   ──   ──   ──
 Unit coverage:                2    3    2    2    ✓ all 4 quadrants reached
 
 Recommendations:
-- A1 + A2 in isolation are gameable. Either add a process artefact to A1
-  (commit history, dev log) or accept the risk because A3+A4 carry the
-  triangulation weight at the unit level.
-- The unit as a whole is well-balanced — students touch all four
-  quadrants across the semester.
+- A1 + A2 sit in the simple view's bottom-right (output-only). That's a
+  legitimate role for skill-check assessments, AS LONG AS A3+A4 carry the
+  triangulation weight at the unit level — which they do here.
+- If you wanted to move A1 toward top-right, the obvious lever is a
+  process artefact (commit history via git-analyser, or a dev log →
+  reflection-analyser).
+- The unit as a whole is well-balanced across all four detailed quadrants;
+  students touch each kind of signal across the semester.
 ```
 
-The shift from per-assessment to per-unit changes what "robustness" means.
-A single Q1-only programming lab can be defensible if the same students
-do a Q4 reflection elsewhere in the unit. What matters is **cumulative
-exposure across the assessment plan**, not isolated triangulation in every
-piece.
+Both views answer the same question (*"is this unit balanced?"*) at
+different resolutions. The simple view is the educator-friendly executive
+summary; the detailed view tells you which specific signal types each
+assessment generates — and from there, [which named bundle](#bundles--first-class-presets)
+or hand-picked tools to wire up.
 
-This kind of unit-level audit is intentionally *not* tooled in the family
-right now — see [Related tools](#related-tools-for-assessment-design)
-below for what already exists in this space and why we haven't built
-another.
+A unit-level audit tool is intentionally *not* in the family right now —
+see [Related tools](#related-tools-for-assessment-design) below for what
+already exists in this space and why we haven't built another.
 
 ### Related tools for assessment design
 
@@ -388,13 +486,19 @@ audience, same input format) rather than a standalone build.
 
 **As an educator designing a unit's assessment plan:**
 
-1. List the assessments and tag each with the quadrants it taps.
-2. Sum coverage across the unit — see the
-   [unit-level audit example](#unit-level-coverage--designing-assessments-not-just-grading-them).
-3. Any quadrant left empty across the whole unit is a coverage gap worth
-   considering.
+1. **Start with the [simple view](#the-simple-view--product--process).**
+   Plot each of your unit's assessments as a dot on the Product × Process
+   quadrant. If the dots cluster in one cell (especially bottom-right —
+   output-only — or bottom-left — weak), the unit is unbalanced.
+2. The *unit's cumulative coverage* should reach top-right; individual
+   assessments don't all need to. A timed skill-check + a reflective
+   journal + a major project together can cover both axes even though
+   each one is single-cell.
+3. **For more detail**, drop into the [unit-level coverage breakdown](#unit-level-coverage--detailed-breakdown)
+   — which of the four detailed quadrants each assessment touches.
 4. Pair this lens with `udl-lens` (UDL audit per assessment) — neither
-   replaces the other.
+   replaces the other; UDL asks "is it inclusive?" while this map asks
+   "what kind of evidence does it generate?".
 
 **As a developer building a new member:**
 
