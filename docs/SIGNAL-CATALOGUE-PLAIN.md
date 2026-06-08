@@ -1,6 +1,6 @@
 ---
 title: "What we can notice about student work"
-subtitle: "A plain-language guide to signal-based assessment"
+subtitle: "Signal-based assessment for conversation, not delegation"
 ---
 
 # What we can notice about student work
@@ -13,11 +13,21 @@ When a student submits work — an essay, a video, some code, a spreadsheet —
 there's a lot we *could* notice about it, beyond just reading or watching it.
 A "signal" is one such observation: a single, concrete thing we can measure
 automatically. This is a catalogue of the signals we can pick up today, sorted
-by the kind of work a student hands in. None of them is a verdict on its own —
-they're prompts that help a marker look in the right place.
+by the kind of work a student hands in.
 
-A quick note on tone: these signals **inform** a human marker; they don't grade
-on their own. Think of them as a smart highlighter, not an examiner.
+## What we're actually looking for
+
+This sits inside a simple idea: **conversation, not delegation.** Using AI is
+fine — encouraged, even. The question isn't *whether* a student used AI, but
+whether AI **amplified their thinking** or **replaced it**. Did they treat it as
+a thinking partner and stay in charge of the ideas, or hand the task over?
+
+So these signals are mostly about **evidence of a student's own thinking and
+engagement** — not about catching AI use. (We *can* take a weak guess at whether
+some text reads like AI wrote it, but it's easily fooled, it isn't proof, and —
+since using AI is allowed — it isn't really the point.) None of them is a verdict
+on its own; they're prompts that help a marker look in the right place. Think of
+them as a smart highlighter, not an examiner.
 
 ---
 
@@ -27,12 +37,11 @@ on their own. Think of them as a smart highlighter, not an examiner.
 
 - How easy the writing is to read, and roughly what reading level it's pitched at.
 - The writing style — how formal or academic it sounds, and habits like overusing the passive voice or vague "hedging" language.
-- Tell-tale signs that the text may have been written by an AI.
 - Whether passages have been reused from elsewhere in the same piece.
 - Whether the references are real, correctly cited, and actually appear in the text (and whether any links are dead).
 - The overall emotional tone, and the people, places and organisations mentioned.
 - Sentences that seem out of place — as if pasted in from somewhere else.
-- An overall "authenticity" score that pulls the integrity signals together.
+- A *weak* hint about whether the writing reads like AI produced it — worth a closer look at most, never proof, and (since using AI is fine) not the main event.
 
 **A reflective journal.** We can notice how *deep* the reflection goes — whether
 the student is just describing what happened, or genuinely making sense of it:
@@ -40,9 +49,11 @@ signs of self-awareness, critical thinking, use of evidence, honest emotion, and
 plans for what they'll do differently next time. It sorts the reflection onto a
 simple scale, from "just describing" up to "genuinely transformative."
 
-**A transcript of a student chatting with an AI.** We can notice *how* they used
-it — did they think critically, push back, and build on the answers, or simply
-hand the task over? It produces a "critical thinking" picture of the exchange.
+**A transcript of a student chatting with an AI.** This is the clearest window
+into "conversation, not delegation": we can notice *how* they used it — did they
+question, push back, and build on the answers (AI amplifying their thinking), or
+simply hand the task over (delegation)? It produces a "critical thinking" picture
+of the exchange.
 
 ---
 
@@ -59,7 +70,8 @@ for spotting slides and on-screen captions.
 
 **An image or photo.** We can notice the picture quality, the hidden camera/phone
 details (and when and where it was taken), whether it's a copy of another image,
-any text in the picture — and, if present, a built-in "made with AI" credential.
+any text in the picture — and, if the file carries one, a built-in "made with AI"
+label (surfaced for information, not as a red flag in itself).
 
 **A diagram or flowchart.** We can notice whether it's well-formed: stray boxes
 that connect to nothing, accidental loops, and boxes left unlabelled.
@@ -73,9 +85,9 @@ is, whether it's documented, common beginner mistakes, and a rough sense of the
 skill level on display. For notebooks, we can even tell whether the student
 actually ran their code.
 
-**A code project's history (its "version control").** This is a lovely one for
-authenticity: we can see whether the work was built up steadily over time, or
-dumped in one big last-minute upload.
+**A code project's history (its "version control").** A lovely one for the
+"did it happen over time?" question: we can see whether the work was built up
+steadily, or dumped in one big last-minute upload.
 
 **A spreadsheet.** We can notice whether they used real formulas or just typed the
 answers in by hand, how sophisticated the formulas are, and whether there are
@@ -97,17 +109,26 @@ including large blocks pasted in at once, which can be worth a second look.
 
 ---
 
-## The three big questions these signals help answer
+## The three questions these signals help answer
 
-Most of the signals above fall into one of three buckets. A well-rounded
-assessment usually draws on more than one:
+Most of the signals above speak to one of three questions. The first is the
+heart of "conversation, not delegation"; a well-rounded assessment usually draws
+on more than one:
 
-1. **Is it authentic?** — signs of AI generation, fake or mis-cited references,
-   big paste-ins, last-minute uploads, suspiciously short editing times.
-2. **Did the work really happen — and over time?** — the editing trail, the
-   project history, the reflection, the back-and-forth with an AI.
+1. **Did the student's own thinking happen — and did AI amplify it?** — the
+   back-and-forth with an AI (did they question, push back, and build on it, or
+   delegate?), the depth of their reflection, and the trail of how the work
+   evolved. This is the signal that matters most, and the hardest to fake.
+2. **Was the work built up over time?** — the editing trail, the project
+   history, how long a document was actually worked on. Steady effort tells a
+   very different story from a fully-formed, last-minute drop.
 3. **How good is it?** — the quality and depth measures: writing depth,
    reflection depth, presentation clarity, code skill level.
+
+(There are also weaker "does this look AI-written?" style hints — AI-ish
+phrasing, big paste-ins, broken references. We treat those as gentle nudges to
+look closer, never as proof, and never as the point. Using AI *well* is the
+goal, not avoiding it.)
 
 ## Putting signals together
 
@@ -123,3 +144,10 @@ This is a living list — these are simply the signals we can pick up **today**.
 The toolkit is built so we can add new signals, or whole new kinds of submission,
 whenever a useful one comes up. If there's something you wish we could notice
 about student work, that's exactly the kind of thing we can add.
+
+---
+
+*This sits within the **Conversation, not Delegation** approach to assessment in
+the age of AI — the goal isn't to detect or avoid AI, but to see whether it
+amplified a student's thinking. More at conversationnotdelegation.com and
+bigpicture.borck.dev.*
