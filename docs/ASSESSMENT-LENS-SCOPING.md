@@ -96,6 +96,19 @@ observations:
 - **Near-term (separate workstream):** `draft-rubric` (free-form spec → proposed rubric), since free-form is the common case.
 - **Deferred:** Electron/web UI; multi-assignment management; the analyser-bundling/packaging story for desktop (the whole ML stack must be reachable — likely talk to analyser *services* rather than bundle them all).
 
+## Harvest from video-analyser (head-start, do not rewrite from scratch)
+When scaffolding assessment-lens, lift + adapt the assessment subsystem removed
+from **video-analyser** at pre-removal commit **`b3ae7e19`** (`git show b3ae7e19:<path>`):
+
+| Path (in video-analyser @ b3ae7e19) | Reuse |
+|---|---|
+| `src/video_analyser/analysis/rubric_system.py` (Rubric / Criterion / `RubricRepository`) | **High — lift mostly as-is** (this is our rubric model + storage) |
+| `src/video_analyser/analysis/default_rubrics.py` | **High** — starter rubrics for `draft-rubric` |
+| `src/video_analyser/utils/api_keys.py` | **High** — multi-provider LLM key mgmt |
+| `src/video_analyser/reports/assessment_session.py` · `assessment_storage.py` · `assessment_report.py` · `assessment_integration.py` | **Medium — lift + adapt** to Submission/Observation model |
+| `src/video_analyser/reports/grading_sheet_renderer.py` | **Medium — adapt** to render *observations* (cohort sheet + per-student) |
+| `src/video_analyser/cli.py` `_build_grading_prompt` / `_generate_grading_feedback` | **Reference only — rewrite** to *narrate-and-cite, never score* |
+
 ## Open questions for the next pass
 - Stack specifics: Python CLI first; what to lift from `document-lens` for the eventual Electron app.
 - How `assess` reaches `bundle-analyser` at runtime (CLI subprocess vs HTTP) and how the analyser stack is provisioned.
