@@ -20,7 +20,9 @@ The doc carries **two complementary views** at different levels of detail:
 The simple view is the front door. The detailed view is for picking
 specific tools. Same family, two reading depths.
 
-> See also: [CONVENTIONS.md](../CONVENTIONS.md) (contract spec) ·
+> See also: [SIGNAL-CATALOGUE.md](./SIGNAL-CATALOGUE.md) (every signal each
+> member emits, enumerated) ·
+> [CONVENTIONS.md](../CONVENTIONS.md) (contract spec) ·
 > [ADDING-A-MEMBER.md](../ADDING-A-MEMBER.md) (how to build a new member) ·
 > [CANDIDATE-MEMBERS.md](../CANDIDATE-MEMBERS.md) (the backlog) ·
 > the README's [family table](../README.md#the-family).
