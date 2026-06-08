@@ -64,13 +64,18 @@ verdict) is flagged per member where one exists.
 **Headline: Delivery quality score (0–100)** — clarity · depth · balance · pace.
 - Transcript + language; speaking rate (WPM) + pace category; filler-word count/rate
 - Silence ratio + actual speaking time; speaker diarization → per-speaker talk-time share + balance
-- **Delivery only** — captures the transcript but does *not* assess content (topic / on-topic / summary; "depth" = avg words per segment). For content, route the transcript through document-analyser, or use video-analyser's rubric grading.
+- **Delivery only** — captures the transcript but does *not* assess content (topic / on-topic / summary; "depth" = avg words per segment). For content, route the transcript through document-analyser, or assess against an assignment in `assessment-lens` (where rubric grading lives — see ADR-0001).
 
 ### video-analyser — video (`.mp4 .mov …`)
 **Headline: overall quality aggregates** — reliability, critical issues, recommended actions.
 - Scene/shot detection; per-scene + overall speech metrics (WPM, fillers, pauses, sentiment, transcription confidence)
 - Per-frame visual quality (blur, exposure, composition); frame captions + on-screen OCR (slides); presentation-layout detection
-- **Optional AI rubric grading** (opt-in; supply a marking rubric + an LLM key) — scores the presentation against the rubric, **including content relevance / focus (on-topic)**, and writes student- or teacher-facing feedback (short/summary/long). The grader is handed the transcript *and* the on-screen text/visual captions together, so it can also judge whether the visuals support what's being said. *No standalone audio↔visual "alignment" number — the LLM infers it; the field literally named `alignment_score` is rule-of-thirds framing, unrelated.*
+- **Audio-visual coherence** *(signal-level alignment)* — whether the on-screen visuals match the narration. Currently inferred only inside the optional rubric grading; candidate to become an explicit, deterministic video-analyser signal so any lens can use it.
+- ⚠️ **Optional AI rubric grading is being *moved out* of video-analyser** → up into `assessment-lens` (see [ADR-0001](./adr/0001-alignment-lives-in-assessment-lens.md)). Rubric grading is assessment-aware and doesn't belong in a signal-only analyser. *(The field literally named `alignment_score` is rule-of-thirds framing — unrelated to either sense of alignment.)*
+
+> **Two senses of "alignment" — do not conflate** (see ADR-0001):
+> 1. **Audio-visual coherence** — visuals vs narration *within a video*. A **signal** about the artefact → stays in `video-analyser` (analyser layer).
+> 2. **Submission ↔ specification alignment** — does the work meet the assignment + rubric? An **assessment-aware judgement** → lives in `assessment-lens` (a product), never an analyser.
 
 ### image-analyser — images (`.png .jpg …`)
 - **C2PA content-credentials → AI-generated claim** (authenticity); perceptual hashes (duplicate/tamper)

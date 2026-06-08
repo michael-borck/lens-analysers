@@ -146,6 +146,30 @@ the essay itself, its hidden history, its editing trail, *and* a short reflectio
 alongside it — and see whether the story they tell is consistent. We have a few
 of these ready-made combinations for common assessment types.
 
+## From signals to a marked submission
+
+On their own, the signals above are just *observations* — they don't yet know
+anything about *your* assignment. The next piece brings the assignment into the
+picture: a small app (working name **assessment-lens**) that a lecturer points at
+
+- the **assignment brief** — what you asked students to do,
+- the **marking rubric** — how you'll judge it (this can live inside the brief), and
+- a **folder of submissions** — say, one folder per student.
+
+It then:
+
+1. reads the brief and works out what each student was *meant* to hand in;
+2. sees what they *actually* submitted;
+3. runs each piece through the relevant signal tools above; and
+4. checks how the evidence lines up against your brief and rubric — showing,
+   criterion by criterion, where the work meets it and where it's thin.
+
+You stay the marker. The app gathers and organises the evidence — and, true to
+*conversation, not delegation*, it tries to show **where the student's own
+thinking maps to each rubric point** — so you can mark faster and more
+consistently, with the evidence laid out in front of you. The signal tools stay
+general-purpose; the app is where they get pointed at a specific assignment.
+
 ## It grows
 
 This is a living list — these are simply the signals we can pick up **today**.
