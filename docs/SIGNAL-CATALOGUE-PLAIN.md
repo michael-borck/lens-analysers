@@ -62,11 +62,19 @@ of the exchange.
 **A spoken recording (e.g. an oral presentation or podcast).** We can notice the
 pace of speaking, how many "um/uh" filler words crept in, how much was pauses or
 silence, and an overall sense of how clearly it was delivered. For group work, it
-can even tell who spoke and for how long.
+can even tell who spoke and for how long. (It writes out a full transcript too —
+but on its own the audio tool looks at *how* something was said, not *what* was
+said.)
 
-**A video.** Everything from the audio above, plus the structure of the video
-(where the scenes change), the picture quality, and any text on screen — handy
-for spotting slides and on-screen captions.
+**A video — for example a recorded presentation or viva.** Everything from the
+audio above, plus the structure of the video (where the scenes change), the
+picture quality, and any text on screen — handy for slides and captions.
+**And, if you give it a marking rubric, it can go further and mark the content:**
+an AI reads the spoken words *and* what's on screen together and judges things
+like whether the talk stayed on-topic and relevant, then writes feedback (for the
+student or the marker). Because it sees the words and the visuals side by side, it
+can also point out when the slides don't match what's being said — which is
+exactly the kind of thing that matters for a recorded viva.
 
 **An image or photo.** We can notice the picture quality, the hidden camera/phone
 details (and when and where it was taken), whether it's a copy of another image,

@@ -64,11 +64,13 @@ verdict) is flagged per member where one exists.
 **Headline: Delivery quality score (0–100)** — clarity · depth · balance · pace.
 - Transcript + language; speaking rate (WPM) + pace category; filler-word count/rate
 - Silence ratio + actual speaking time; speaker diarization → per-speaker talk-time share + balance
+- **Delivery only** — captures the transcript but does *not* assess content (topic / on-topic / summary; "depth" = avg words per segment). For content, route the transcript through document-analyser, or use video-analyser's rubric grading.
 
 ### video-analyser — video (`.mp4 .mov …`)
 **Headline: overall quality aggregates** — reliability, critical issues, recommended actions.
 - Scene/shot detection; per-scene + overall speech metrics (WPM, fillers, pauses, sentiment, transcription confidence)
 - Per-frame visual quality (blur, exposure, composition); frame captions + on-screen OCR (slides); presentation-layout detection
+- **Optional AI rubric grading** (opt-in; supply a marking rubric + an LLM key) — scores the presentation against the rubric, **including content relevance / focus (on-topic)**, and writes student- or teacher-facing feedback (short/summary/long). The grader is handed the transcript *and* the on-screen text/visual captions together, so it can also judge whether the visuals support what's being said. *No standalone audio↔visual "alignment" number — the LLM infers it; the field literally named `alignment_score` is rule-of-thirds framing, unrelated.*
 
 ### image-analyser — images (`.png .jpg …`)
 - **C2PA content-credentials → AI-generated claim** (authenticity); perceptual hashes (duplicate/tamper)
