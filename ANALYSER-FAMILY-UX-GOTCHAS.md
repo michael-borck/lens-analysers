@@ -11,6 +11,12 @@ Versions exercised: `code-analyser 1.0.3`, `git-analyser 0.2.1`,
 `bundle-analyser 0.2.1`, `image-analyser 0.1.3` (installed from local source in
 this repo, not PyPI).
 
+> **Historical record (note added 2026-06-11).** These notes pre-date the family's
+> lens-contract conversion (2026-05-24/25), which resolved the structural
+> divergences: every member now serves `pkg.api:app`, speaks argparse with
+> bare-positional analyse via `run_contract_subcommands`, and carries `add_cors`.
+> Keep the items below as the rationale behind the conventions, not as live bugs.
+
 ---
 
 ## 1. `document-analyser` CLI crashes on every invocation — **blocker**
@@ -168,8 +174,10 @@ Family-wide cleanup landed alongside the new `conversation-analyser`:
   `document_analyser.extract_text()`; other analysers import it instead of
   re-implementing pdfplumber/markitdown. conversation-analyser delegates document
   extraction this way.
-- **Outlier:** `video-analyser` uses a Gradio UI, not the FastAPI contract; it ships
-  a manifest constant only and routes via the fallback.
+- **Outlier (since resolved):** `video-analyser` used a Gradio UI and shipped only a
+  manifest constant. As of 0.8.0 it is a full contract member (Gradio dropped,
+  `api.py` + `run_contract_subcommands`), and 0.10.0 is signal-only (grading moved
+  to `assessment-lens`, ADR-0001).
 
 These address consistency items above (manifest gives a uniform discovery contract;
 extraction de-duplication; clearer routing). The CLI/output-shape items (1–4) remain

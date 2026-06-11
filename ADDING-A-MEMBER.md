@@ -172,7 +172,7 @@ def main() -> None:
 ## 6. Port
 
 Claim the next free port and add it to the registry in CONVENTIONS.md.
-Current: 8000–8010 are taken (auto-analyser is 8010), so the next is **8011**.
+Current: 8000–8016 are taken (revision-analyser is 8016), so the next is **8017**.
 
 ## 7. Tests
 

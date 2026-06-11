@@ -109,13 +109,12 @@ from **video-analyser** at pre-removal commit **`b3ae7e19`** (`git show b3ae7e19
 | `src/video_analyser/reports/grading_sheet_renderer.py` | **Medium — adapt** to render *observations* (cohort sheet + per-student) |
 | `src/video_analyser/cli.py` `_build_grading_prompt` / `_generate_grading_feedback` | **Reference only — rewrite** to *narrate-and-cite, never score* |
 
-## ⏳ Pending release — REVISIT
-**`video-analyser` 0.10.0** (grading removed, ADR-0001) is on `main` (commit
-`36d96d3`) but **deliberately NOT published to PyPI** (PyPI is still 0.9.0).
-Holding because removing `--grade` with no replacement strands users.
-**Publish 0.10.0 to PyPI once `assessment-lens` has reborn the grading** (from
-the harvest above) — so there's a migration path. Until then, `main` and PyPI
-diverge for video-analyser by design.
+## ✅ Released (2026-06-11)
+The hold is over: **`assessment-lens` 0.2.0** landed LLM narration (`assess --llm`)
+and `draft-rubric` (both narrate-and-cite, never score) and is on PyPI, so
+**`video-analyser` 0.10.0** (grading removed, ADR-0001) was published to PyPI the
+same day. video-analyser's README points `--grade` users at assessment-lens as the
+migration path. `main` and PyPI are back in sync for video-analyser.
 
 ## Open questions for the next pass
 - Stack specifics: Python CLI first; what to lift from `document-lens` for the eventual Electron app.

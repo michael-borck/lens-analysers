@@ -75,8 +75,11 @@ dependencies (serve + CLI are always available).
   opt-in via `NAME_ANALYSER_RATE_LIMIT_ENABLED=true`; needs the `lens-contract[ratelimit]`
   extra.
 
-Outliers still to converge: `document-analyser` (`main.py` → `api.py`),
-`image-analyser` / `speech-analyser` (`app.py` → `api.py`, and onto `add_cors`/`add_rate_limit`).
+All members have converged on this surface (the 2026-05-25 conversion batch).
+One deliberate layout exception: `document-analyser` serves from `api/__init__.py`
+(it already had an `api/` routes package), so `document_analyser.api:app` still
+resolves; it also keeps per-route slowapi limits instead of the global
+`add_rate_limit`, and is the first member wiring the opt-in `add_auth`.
 
 ## Capability manifest
 
