@@ -101,6 +101,18 @@ Every member exposes a `MANIFEST` constant, a `manifest` CLI subcommand, and a
 `auto_routable: false`, with a static `_ROUTES` map as the offline fallback. See
 ADR 0001 in the auto-analyser repo.
 
+**One extension, one auto-route** — when two members read the same extension, the
+*default* interpretation owns auto-routing and the other is explicit-only. The
+settled cases (re-confirmed 2026-06-11): `.xlsx`/`.xls` auto-route to
+**records-analyser** (data values); **spreadsheet-analyser** (formula logic) is
+explicit. `.docx` auto-routes to **document-analyser** (prose);
+**revision-analyser** (tracked changes) and **provenance-analyser** (metadata) are
+explicit. `.html`/`.css`/`.js` auto-route to **code-analyser** (source files);
+**site-analyser** (a deployed site) is explicit. A cascade rule (à la
+image→diagram) is the upgrade path if a default member ever emits a trigger
+signal — e.g. records-analyser flagging formulas to cascade into
+spreadsheet-analyser — but no such trigger exists today.
+
 ### Membership is the contract, not the language
 
 A family member is anything that speaks the contract (HTTP `/analyse` + `/manifest`
