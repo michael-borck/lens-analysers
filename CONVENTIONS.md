@@ -20,6 +20,19 @@ spec that `lens-contract` — and non-Python members like cite-sight — impleme
   names where practical (`<Name>Analyser`).
 - **`-lens`** = a bespoke app/product built on the engines. Never use `-lens` for an
   engine.
+- **`-bench`** = a measurement/benchmark product that *evaluates* approaches rather
+  than analysing artefacts. `assessment-bench` is the first: it runs a cohort
+  through competing assessment arms (pure-LLM marking vs `assessment-lens`'s
+  signal-based observations) and reports consistency + agreement-vs-human stats.
+  A bench **measures; it never marks** — the scores an LLM arm emits are data
+  under test, not grades for students. It declares `role="bench"`,
+  `auto_routable=False` (invoked deliberately, never routed to by file type).
+  - Both `-lens` and `-bench` *consume* the family rather than analyse artefacts,
+    but they differ in family-table visibility: a bench ships a `manifest.py`
+    (and an optional `serve` HTTP face for a UI), so it speaks the contract and
+    appears in the table; a pure-CLI lens like `assessment-lens` has no manifest
+    and stays out of it. Manifest presence means "I have a discoverable HTTP
+    face," not "I'm an analyser."
 - Package `name-analyser`, import module `name_analyser`, classes
   `NameAnalyser` / `NameAnalysis`.
 
@@ -90,7 +103,7 @@ Every member exposes a `MANIFEST` constant, a `manifest` CLI subcommand, and a
 |---|---|
 | `name` | package name |
 | `version` | installed version |
-| `role` | `analyser` or `orchestrator` |
+| `role` | `analyser`, `orchestrator`, or `bench` |
 | `accepts` | content kinds it handles (e.g. `["code"]`) |
 | `extensions` | file extensions it claims for auto-routing (`[]` if none) |
 | `auto_routable` | may `auto-analyser` route to it automatically? |

@@ -107,13 +107,14 @@ def discover() -> list[dict]:
 
 
 def _routable(m: dict) -> str:
-    if m.get("role") == "orchestrator":
-        return "orchestrator"
+    role = m.get("role")
+    if role in ("orchestrator", "bench"):
+        return role
     return "auto" if m.get("auto_routable") else "explicit"
 
 
 def _sort_key(m: dict) -> tuple:
-    order = {"auto": 0, "explicit": 1, "orchestrator": 2}
+    order = {"auto": 0, "explicit": 1, "orchestrator": 2, "bench": 3}
     return (order[_routable(m)], m["name"])
 
 
