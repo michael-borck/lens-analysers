@@ -70,8 +70,8 @@ verdict) is flagged per member where one exists.
 **Headline: overall quality aggregates** — reliability, critical issues, recommended actions.
 - Scene/shot detection; per-scene + overall speech metrics (WPM, fillers, pauses, sentiment, transcription confidence)
 - Per-frame visual quality (blur, exposure, composition); frame captions + on-screen OCR (slides); presentation-layout detection
-- **Audio-visual coherence** *(signal-level alignment)* — whether the on-screen visuals match the narration. Currently inferred only inside the optional rubric grading; candidate to become an explicit, deterministic video-analyser signal so any lens can use it.
-- ⚠️ **Optional AI rubric grading is being *moved out* of video-analyser** → up into `assessment-lens` (see [ADR-0001](./adr/0001-alignment-lives-in-assessment-lens.md)). Rubric grading is assessment-aware and doesn't belong in a signal-only analyser. *(The field literally named `alignment_score` is rule-of-thirds framing — unrelated to either sense of alignment.)*
+- **Audio-visual coherence** *(signal-level alignment)* — whether the on-screen visuals match the narration. Roadmap: was previously inferred inside the (now removed) rubric grading; candidate to return as an explicit, deterministic video-analyser signal so any lens can use it.
+- ✅ **Rubric grading was moved out of video-analyser in 0.10.0** → up into `assessment-lens` (see [ADR-0001](./adr/0001-alignment-lives-in-assessment-lens.md)); video-analyser is signal-only. *(The field literally named `alignment_score` is rule-of-thirds framing — unrelated to either sense of alignment.)*
 
 > **Two senses of "alignment" — do not conflate** (see ADR-0001):
 > 1. **Audio-visual coherence** — visuals vs narration *within a video*. A **signal** about the artefact → stays in `video-analyser` (analyser layer).

@@ -9,7 +9,7 @@ the mark. The AI never marks; a human stays in the loop.
 > Architecture rationale: [ADR-0001](./adr/0001-alignment-lives-in-assessment-lens.md).
 > Signals it consumes: [SIGNAL-CATALOGUE.md](./SIGNAL-CATALOGUE.md).
 > Assessment-design framing: [ASSESSMENT-MAP.md](./ASSESSMENT-MAP.md).
-> Status: scoping (pre-build). CLI first; Electron/web later.
+> Status: built — assessment-lens 0.2.0 on PyPI (CLI; Electron/web later). This doc is the design record.
 
 ## What it is (and isn't)
 - A **lens** (assessment-aware product), not an `-analyser`. It *consumes* analysers; it does not generate signals.

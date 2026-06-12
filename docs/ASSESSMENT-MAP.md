@@ -351,11 +351,11 @@ implementation will follow once the orchestrator is updated.
 | `multimedia-evidence` | video + speech + image + provenance | Recorded artefact tasks |
 | `reflective-practice` | reflection + conversation + revision (trajectory) | Reflective journals, UDL portfolios |
 
-### Proposed orchestrator surface (not yet implemented)
+### Orchestrator surface (shipped in auto-analyser 0.6.0)
 
 ```bash
-auto-analyser --preset authentic-essay essay.docx
-auto-analyser --preset skill-with-evidence app.py
+auto-analyser essay.docx --preset authentic-essay
+auto-analyser app.py --preset skill-with-evidence
 auto-analyser presets                          # list available
 ```
 
