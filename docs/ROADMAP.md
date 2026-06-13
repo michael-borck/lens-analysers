@@ -65,8 +65,10 @@ lens-contract — working name `lens-embed`; single-purpose, not a junk drawer) 
 - [x] Stand up `lens-embed` 0.1.0: `embed_text/embed_texts` + `embed_image/embed_images`, `cosine_similarity`/`pairwise_similarity`/`most_similar`, pinned model ids (text `all-MiniLM-L6-v2`, image CLIP `ViT-B-32`), opt-in `[text]`/`[image]` extras, numpy-only core. **On PyPI + repo `michael-borck/lens-embed`.** 16 tests.
 - [x] lens-embed 0.1.1: `embed_long_text` (mean-pooled document vector — pooling lives in lens-embed so per-analyser wiring stays a one-liner)
 - [x] Wire text analysers — **DONE** (all on main, not released): document, reflection, code, speech (transcript), conversation. Each: opt-in `[embeddings]` extra (`lens-embed[text]`) + sibling source; tiny `embed_document()` helper (import-guard + `backend_available` + try/except → None); `embedding: list[float] | None = None` on the result model; embed the canonical text in the assembly; graceful None without the extra; no manifest change. Special cases handled: speech injects into its dict→AudioAnalysis; conversation **consolidated** its pre-existing `[embeddings]` extra onto `lens-embed[text]` (its internal prompt self-similarity still resolves sentence-transformers transitively).
-- [ ] Wire image/video/diagram to expose CLIP vectors (video = per-key-frame)
-- [ ] Coordinated release wave for the embedding-enabled members (text tier done on main; bundle with image tier)
+- [x] Wire image/video/diagram — **DONE** (judgment call, flagged): only **image** is a true CLIP case (`lens-embed[image]`, embeds the image). **video** embeds its transcript text and **diagram** its source text (`lens-embed[text]`) — diagrams are text-format and a video's narration must be comparable to a *report*, which CLIP frames can't do. Per-key-frame CLIP (video) and rendered-image CLIP (diagram) are deferred refinements for visual similarity.
+- [x] **Coordinated release wave DONE (2026-06-13)** — all 8 embedding-enabled members published to PyPI: document 0.8.0, reflection 0.2.0, code 1.3.0, speech 0.6.0, conversation 0.4.0, image 0.5.0, video 0.11.0, diagram 0.2.0. (lens-embed 0.1.1 underpins them.)
+
+**✅ Phase 2 complete.** Every text-or-image artefact in the family now exposes an optional, comparable `embedding`. Phase 3 (distinctiveness) is unblocked.
 
 ## Phase 3 — Distinctiveness signal (cohort-relative)
 
