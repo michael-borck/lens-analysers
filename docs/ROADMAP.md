@@ -64,9 +64,9 @@ lens-contract — working name `lens-embed`; single-purpose, not a junk drawer) 
 
 - [x] Stand up `lens-embed` 0.1.0: `embed_text/embed_texts` + `embed_image/embed_images`, `cosine_similarity`/`pairwise_similarity`/`most_similar`, pinned model ids (text `all-MiniLM-L6-v2`, image CLIP `ViT-B-32`), opt-in `[text]`/`[image]` extras, numpy-only core. **On PyPI + repo `michael-borck/lens-embed`.** 16 tests.
 - [x] lens-embed 0.1.1: `embed_long_text` (mean-pooled document vector — pooling lives in lens-embed so per-analyser wiring stays a one-liner)
-- [~] Wire text analysers — **document-analyser DONE as the proof-of-shape** (on main, not released; template below). Remaining: conversation, reflection, speech transcript, code.
-  - Template per analyser: opt-in `[embeddings]` extra (`lens-embed[text]`) + sibling source; a tiny `embed_document()` helper (import-guard + `backend_available` + try/except → None); `embedding: list[float] | None = None` on the result model; embed the canonical text in the assembly. Degrades to None with no extra; no manifest change.
+- [x] Wire text analysers — **DONE** (all on main, not released): document, reflection, code, speech (transcript), conversation. Each: opt-in `[embeddings]` extra (`lens-embed[text]`) + sibling source; tiny `embed_document()` helper (import-guard + `backend_available` + try/except → None); `embedding: list[float] | None = None` on the result model; embed the canonical text in the assembly; graceful None without the extra; no manifest change. Special cases handled: speech injects into its dict→AudioAnalysis; conversation **consolidated** its pre-existing `[embeddings]` extra onto `lens-embed[text]` (its internal prompt self-similarity still resolves sentence-transformers transitively).
 - [ ] Wire image/video/diagram to expose CLIP vectors (video = per-key-frame)
+- [ ] Coordinated release wave for the embedding-enabled members (text tier done on main; bundle with image tier)
 
 ## Phase 3 — Distinctiveness signal (cohort-relative)
 
