@@ -70,14 +70,15 @@ lens-contract — working name `lens-embed`; single-purpose, not a junk drawer) 
 
 **✅ Phase 2 complete.** Every text-or-image artefact in the family now exposes an optional, comparable `embedding`. Phase 3 (distinctiveness) is unblocked.
 
-## Phase 3 — Distinctiveness signal (cohort-relative)
+## Phase 3 — Distinctiveness signal (cohort-relative)  ✅ (done 2026-06-13)
 
 Compare each submission against the *others in the same batch* — signal-space
-**and** raw-text (everything converts to text). Neutral "unusually similar to X"
-observation, **never** a collusion/plagiarism verdict.
+**and** raw-text (everything converts to text). Neutral, **direction-agnostic**
+observation (standing apart can be an out-of-the-box answer *or* a thin one),
+**never** a collusion/plagiarism verdict and never a quality judgement.
 
-- [ ] assessment-lens: cohort mode — collect all submissions' evidence first, then add a distinctiveness Observation per criterion (seam: `alignment.gather_evidence`)
-- [ ] assessment-bench: distinctiveness field on `ArmOutcome` (distance matrix / similarity-to-centroid), optionally its own measured arm
+- [x] assessment-lens (0.2.0, on main): cohort post-pass in `assess()` — once every submission's vector is in hand, `distinctiveness.annotate_cohort` attaches a per-submission `Distinctiveness` across **three spaces** (text = pooled Phase-2 embeddings; signal = z-normalised numeric signal values; combined = the mean). Flags are **relative to the cohort's own distribution** (z-scores, `_MIN_FOR_RELATIVE=5`), so a tightly-clustered cohort (a prescriptive/weak task) doesn't trip everyone while a genuine outlier still surfaces — this resolves the clustering concern without needing a separate NN model. Pure consumer (numpy-only lens-embed core); degradable to None. Report shows per-space cohort comparison in student reports + a distinctiveness row in the cohort sheet.
+- [x] assessment-bench (0.4.0, on main): **refined the home** — distinctiveness is arm-independent, so it lives on `ExperimentResult.distinctiveness` (per submission, once) not duplicated across each `ArmOutcome`. Reuses assessment-lens's `Distinctiveness` model unchanged. `run_signals_arm` → `run_cohort_pass` returns the full `AssessmentResult` so distinctiveness survives the one shared (expensive) analyser pass; pure-LLM experiments pay nothing. Surfaced as a correlatable measure (`distinctiveness.mean_similarity` vs human marks — answers "do the arms/marks treat distinctive submissions differently?") instead of a literal extra arm. New `distinctiveness.csv`.
 
 ## Phase 4 — Backlog (revisit after the above)
 
