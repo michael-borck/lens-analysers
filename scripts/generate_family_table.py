@@ -39,7 +39,7 @@ BLURBS = {
     "spreadsheet-analyser": "Excel — formula logic, dependencies, error cells, hygiene smells",
     "site-analyser": "deployed URL or static-site dir — accessibility, structure, SEO, links, validity",
     "diagram-analyser": "mermaid / PlantUML / Graphviz / drawio — nodes, edges, cycles, depth, naming",
-    "provenance-analyser": "document metadata — creator app, editing time, authorship, AI-gen markers",
+    "provenance-analyser": "document metadata — creator app, editing time, authorship & producer markers",
     "reflection-analyser": "reflective writing — metacognition, criticality, depth bands",
     "revision-analyser": ".docx tracked-changes — drafting trajectory, paste-burst detection",
     "code-analyser": "source code — style, complexity, quality",

@@ -42,7 +42,7 @@ Within the engines there's a second distinction that matters for routing:
 | [cite-sight](https://github.com/michael-borck/cite-sight) | 0.4.1 | citations & references — verify (Crossref/OpenAlex), DOI, format, cross-refs | — | explicit | [repo](https://github.com/michael-borck/cite-sight) |
 | [conversation-analyser](https://github.com/michael-borck/conversation-analyser) | 0.4.0 | human-AI conversations — engagement + critical-thinking | — | explicit | [PyPI](https://pypi.org/project/conversation-analyser/) · [repo](https://github.com/michael-borck/conversation-analyser) |
 | [git-analyser](https://github.com/michael-borck/git-analyser) | 0.4.0 | git repositories — commit history + churn | — | explicit | [PyPI](https://pypi.org/project/git-analyser/) · [repo](https://github.com/michael-borck/git-analyser) |
-| [provenance-analyser](https://github.com/michael-borck/provenance-analyser) | 0.1.0 | document metadata — creator app, editing time, authorship, AI-gen markers | `.docx`, `.pdf`, `.pptx`, `.xlsx` | explicit | [PyPI](https://pypi.org/project/provenance-analyser/) · [repo](https://github.com/michael-borck/provenance-analyser) |
+| [provenance-analyser](https://github.com/michael-borck/provenance-analyser) | 0.1.0 | document metadata — creator app, editing time, authorship & producer markers | `.docx`, `.pdf`, `.pptx`, `.xlsx` | explicit | [PyPI](https://pypi.org/project/provenance-analyser/) · [repo](https://github.com/michael-borck/provenance-analyser) |
 | [reflection-analyser](https://github.com/michael-borck/reflection-analyser) | 0.2.0 | reflective writing — metacognition, criticality, depth bands | — | explicit | [PyPI](https://pypi.org/project/reflection-analyser/) · [repo](https://github.com/michael-borck/reflection-analyser) |
 | [revision-analyser](https://github.com/michael-borck/revision-analyser) | 0.1.0 | .docx tracked-changes — drafting trajectory, paste-burst detection | `.docx` | explicit | [PyPI](https://pypi.org/project/revision-analyser/) · [repo](https://github.com/michael-borck/revision-analyser) |
 | [site-analyser](https://github.com/michael-borck/site-analyser) | 0.1.0 | deployed URL or static-site dir — accessibility, structure, SEO, links, validity | — | explicit | [PyPI](https://pypi.org/project/site-analyser/) · [repo](https://github.com/michael-borck/site-analyser) |
@@ -54,7 +54,7 @@ Within the engines there's a second distinction that matters for routing:
 <!-- family-table:end -->
 
 *This table is generated from each package's capability manifest by
-[`scripts/generate_family_table.py`](scripts/generate_family_table.py) — single
+[`scripts/generate_family_table.py`](https://github.com/michael-borck/lens-analysers/blob/main/scripts/generate_family_table.py) — single
 source of truth, so it never drifts. Versions are each package's current release;
 follow the PyPI links to install. Every Python member is built on the shared
 [lens-contract](https://github.com/michael-borck/lens-contract) library.*
