@@ -62,10 +62,9 @@ cohort-distinctiveness signal. Build it once, both unlock.
 lens-contract — working name `lens-embed`; single-purpose, not a junk drawer) ·
 **all modalities** in the first pass. Opt-in install so analyser cores stay light.
 
-- [ ] Stand up `lens-embed`: `embed_text()` (sentence-transformers) + `embed_image()` (CLIP); pinned model ids; opt-in extras
+- [x] Stand up `lens-embed` 0.1.0: `embed_text/embed_texts` + `embed_image/embed_images`, `cosine_similarity`/`pairwise_similarity`/`most_similar`, pinned model ids (text `all-MiniLM-L6-v2`, image CLIP `ViT-B-32`), opt-in `[text]`/`[image]` extras, numpy-only core. **On PyPI + repo `michael-borck/lens-embed`.** 16 tests.
 - [ ] Wire text analysers (document, conversation, reflection, speech transcript, code) to expose an optional embedding in their result model + manifest `produces`
 - [ ] Wire image/video/diagram to expose CLIP vectors (video = per-key-frame)
-- [ ] New PyPI project + repo for `lens-embed` (mind the new-project rate cap)
 
 ## Phase 3 — Distinctiveness signal (cohort-relative)
 
