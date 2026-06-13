@@ -92,9 +92,9 @@ observation (standing apart can be an out-of-the-box answer *or* a thin one),
   - git → incremental-vs-monolithic cadence, co-change patterns
   - provenance → normalized effort ratio (edit-time ÷ size), timestamp-order validity
 - **Cross-artefact consistency** (consumer layer, built on Phase 2 vectors): does the video narration match the report? code match the reflection?
-- **Framing rename** (schema-touching, own release): provenance `ai_generation_marker` → neutral authoring-tool/producer observation
-- **Umbrella rendered site**: Quarto → GitHub Pages (conceptual docs + the generated family table)
-- **Cookbook repo** (`lens-cookbook`): end-to-end multi-tool use cases + shared mock cohorts (sample PDF/audio/video/code), reused by assessment-lens, assessment-bench, and demos
+- **Framing rename** (schema-touching, own release): provenance `ai_generation_marker` → neutral authoring-tool/producer observation (the *blurb* is already neutralised in the README + table generator; the schema field rename is the remaining work)
+- [x] **Umbrella rendered site** — DONE 2026-06-13. Quarto website over the existing markdown (no restructuring; Quarto was already in the toolchain). `_quarto.yml` + `index.qmd` (includes README, single source) + `.github/workflows/publish.yml` (render → Pages on push to main, Actions source). **Live: https://michael-borck.github.io/lens-analysers/**
+- **Cookbook repo** (`lens-cookbook`): end-to-end multi-tool use cases + shared mock cohorts (sample PDF/audio/video/code), reused by assessment-lens, assessment-bench, and demos — **next**
 - auto-analyser: add cascade rules beyond image→diagram; validate preset member signal-richness
 
 ---
