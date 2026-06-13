@@ -44,25 +44,28 @@ cohort-distinctiveness signal. Build it once, both unlock.
 
 ---
 
-## Phase 1 — Hygiene sweep
+## Phase 1 — Hygiene sweep  ✅ (done 2026-06-13, except one deferred item)
 
-- [ ] Add a thin `examples/` (single-tool usage snippet) to every analyser
-- [ ] git-analyser: replace placeholder README, fix "Planning" → shipped status
-- [ ] wordpress-analyser: same
-- [ ] bundle-analyser: LICENSE © 2024 → 2026; flesh out the minimal README
-- [ ] Remove `"ai-detection"` from revision-analyser + provenance-analyser pyproject keywords
-- [ ] Commit untracked: assessment-lens `CLAUDE.md`, assessment-bench `uv.lock`
-- [ ] document-analyser: drop stale `InferredMetadata` legacy
-- [ ] Decide release cadence (default: batch on main, release in waves — mind the PyPI new-project/throughput cap)
+- [x] Add a thin `examples/basic_usage.md` (CLI + verified Python + HTTP) to all 17 analysers/orchestrators
+- [x] git-analyser: README status "coming soon" → "available on PyPI" (it's shipped at 0.4.0)
+- [x] wordpress-analyser: same
+- [x] bundle-analyser: LICENSE © 2024 → 2026 (README usage now covered by examples/)
+- [x] Remove `"ai-detection"` from revision- + provenance-analyser keywords
+- [x] Commit assessment-bench `uv.lock` (assessment-lens CLAUDE.md was already tracked — audit miscall)
+- [ ] document-analyser: drop stale `InferredMetadata` legacy — **deferred** (code change in schemas.py, verify truly unused first; not a hygiene rush)
+- [x] Release cadence decided: **batch on main, no PyPI release this pass** — all changes are dev-facing (examples/README/keywords/LICENSE/lock), nothing runtime-affecting. Releases ride the next substantive change per package.
 
 ## Phase 2 — Embedding infrastructure (keystone)
 
-Open decisions (locking now): model · structure · modality scope. See the
-decision log below once answered.
+**Decided 2026-06-13:** local **sentence-transformers** (text) + **CLIP/open_clip**
+(image) · **one focused shared library** (new package, role `library`, à la
+lens-contract — working name `lens-embed`; single-purpose, not a junk drawer) ·
+**all modalities** in the first pass. Opt-in install so analyser cores stay light.
 
-- [ ] Add optional embedding output to the text analysers (document, conversation, reflection, speech transcript, code)
-- [ ] (if all-modality) CLIP-style vectors for image / video / diagram
-- [ ] Expose via result model + manifest `produces`; behind an opt-in extra so core stays light
+- [ ] Stand up `lens-embed`: `embed_text()` (sentence-transformers) + `embed_image()` (CLIP); pinned model ids; opt-in extras
+- [ ] Wire text analysers (document, conversation, reflection, speech transcript, code) to expose an optional embedding in their result model + manifest `produces`
+- [ ] Wire image/video/diagram to expose CLIP vectors (video = per-key-frame)
+- [ ] New PyPI project + repo for `lens-embed` (mind the new-project rate cap)
 
 ## Phase 3 — Distinctiveness signal (cohort-relative)
 
@@ -104,4 +107,4 @@ the LLM narrates and cites; it never scores; a human marks.)
 
 ## Decision log
 
-- _(pending)_ Embedding model · structure · modality scope — see open questions.
+- **2026-06-13 — Embeddings:** local sentence-transformers (text) + CLIP/open_clip (image); one focused shared library (`lens-embed`, role `library`); all modalities in the first pass; opt-in install. Cores stay light.
