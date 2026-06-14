@@ -49,7 +49,7 @@ Within the engines there's a second distinction that matters for routing:
 | [spreadsheet-analyser](https://github.com/michael-borck/spreadsheet-analyser) | 0.1.0 | Excel — formula logic, dependencies, error cells, hygiene smells | `.xlsx`, `.xlsm` | explicit | [PyPI](https://pypi.org/project/spreadsheet-analyser/) · [repo](https://github.com/michael-borck/spreadsheet-analyser) |
 | [auto-analyser](https://github.com/michael-borck/auto-analyser) | 0.6.0 | any file — detects format and routes to the right tool | — | orchestrator | [PyPI](https://pypi.org/project/auto-analyser/) · [repo](https://github.com/michael-borck/auto-analyser) |
 | [bundle-analyser](https://github.com/michael-borck/bundle-analyser) | 0.4.0 | folders & zips — analyse a collection of files | — | orchestrator | [PyPI](https://pypi.org/project/bundle-analyser/) · [repo](https://github.com/michael-borck/bundle-analyser) |
-| [assessment-bench](https://github.com/michael-borck/assessment-bench) | 0.3.0 | experiment | — | bench | [PyPI](https://pypi.org/project/assessment-bench/) · [repo](https://github.com/michael-borck/assessment-bench) |
+| [assessment-bench](https://github.com/michael-borck/assessment-bench) | 0.4.0 | experiment | — | bench | [PyPI](https://pypi.org/project/assessment-bench/) · [repo](https://github.com/michael-borck/assessment-bench) |
 
 <!-- family-table:end -->
 
