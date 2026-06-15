@@ -117,7 +117,7 @@ Sequence: **(a) prereqs → (b) design doc → (c) scaffold → app #1 → app #
 - [x] **(a) assessment-lens local LLM provider** — DONE (0.4.0): `llm.py` now multi-provider — default Anthropic, `ASSESSMENT_LENS_PROVIDER=ollama` (or openai/openrouter) for fully-local narration. `[llm]` extra adds openai.
 - [x] **(b) Design doc** — DONE: [docs/DESKTOP-APPS-DESIGN.md](DESKTOP-APPS-DESIGN.md) (on the site).
 - [x] **(c) `lens-desktop` template** — SCAFFOLDED locally (`/Users/michael/Projects/lens/lens-desktop`, 23 files, git main; **no remote yet**). Sidecar manager, first-run installer (incl. the Windows `install.ps1`), Ollama module + card, electron-builder/notarize, minimal React shell. **Not yet npm-installed/launched — needs a verification pass (esp. per-OS first-run install) before app #1.**
-- [ ] **App #1: assessment-lens desktop** (sidecar via talk-buddy pattern, Ollama via insight-lens, security via document-lens). ← next after the scaffold is verified.
+- [x] **App #1: assessment-lens desktop** — SCAFFOLDED from the template + builds clean (typecheck + electron-vite). Repo `github.com/michael-borck/assessment-lens-desktop`. Marking UI (pick rubric + cohort → run → live progress → observations/deliverables/distinctiveness), file-picker + sidecar-proxy IPC added. **Remaining: release assessment-lens 0.4.0 to PyPI (the app's first-run pip spec needs it), then per-OS first-run + live-GUI verification.**
 - [ ] **App #2: assessment-bench desktop** (from the template; backend already has serve + api.py + Ollama).
 
 ---
