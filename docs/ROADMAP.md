@@ -113,11 +113,11 @@ electron-builder/notarize/updater). See the desktop-app-patterns memory.
 
 Sequence: **(a) prereqs → (b) design doc → (c) scaffold → app #1 → app #2.**
 
-- [ ] **(a) assessment-lens HTTP API** — add `serve` + `api.py` + manifest + `serve` extra (it's CLI-only today; the #1 blocker). **← in progress**
-- [ ] **(a) assessment-lens local LLM provider** — add Ollama/OpenAI-compatible to `llm.py` (currently Anthropic-only; defeats the privacy goal otherwise).
-- [ ] **(b) Design doc** — the two-app plan + the `lens-desktop` template (sidecar manager, OllamaSetupCard, settings/secure-storage, electron-builder/notarize, first-run installer incl. a **Windows PowerShell** equivalent of talk-buddy's bash `setup.sh`).
-- [ ] **(c) `lens-desktop` template** — GitHub *template* repo extracted from career-compass + talk-buddy; apps start from it but stay self-contained (the apps are currently copy-paste siblings → drift; a template fixes that).
-- [ ] **App #1: assessment-lens desktop** (sidecar via talk-buddy pattern, Ollama via insight-lens, security via document-lens).
+- [x] **(a) assessment-lens HTTP API** — DONE (v0.4.0, on main, not yet on PyPI): `serve` + `api.py` (`POST /assessments` → poll → result) + `manifest.py` (role lens) + `[serve]` extra. 51 tests.
+- [x] **(a) assessment-lens local LLM provider** — DONE (0.4.0): `llm.py` now multi-provider — default Anthropic, `ASSESSMENT_LENS_PROVIDER=ollama` (or openai/openrouter) for fully-local narration. `[llm]` extra adds openai.
+- [x] **(b) Design doc** — DONE: [docs/DESKTOP-APPS-DESIGN.md](DESKTOP-APPS-DESIGN.md) (on the site).
+- [x] **(c) `lens-desktop` template** — SCAFFOLDED locally (`/Users/michael/Projects/lens/lens-desktop`, 23 files, git main; **no remote yet**). Sidecar manager, first-run installer (incl. the Windows `install.ps1`), Ollama module + card, electron-builder/notarize, minimal React shell. **Not yet npm-installed/launched — needs a verification pass (esp. per-OS first-run install) before app #1.**
+- [ ] **App #1: assessment-lens desktop** (sidecar via talk-buddy pattern, Ollama via insight-lens, security via document-lens). ← next after the scaffold is verified.
 - [ ] **App #2: assessment-bench desktop** (from the template; backend already has serve + api.py + Ollama).
 
 ---
