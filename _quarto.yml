@@ -15,6 +15,7 @@ project:
     - docs/SIGNAL-CATALOGUE.md
     - docs/SIGNAL-CATALOGUE-PLAIN.md
     - docs/ASSESSMENT-LENS-SCOPING.md
+    - docs/DESKTOP-APPS-DESIGN.md
     - docs/ROADMAP.md
     - docs/adr/0001-alignment-lives-in-assessment-lens.md
 
@@ -51,6 +52,8 @@ website:
             href: docs/SIGNAL-CATALOGUE-PLAIN.md
           - text: "assessment-lens scoping"
             href: docs/ASSESSMENT-LENS-SCOPING.md
+          - text: "Desktop apps design (Phase 5)"
+            href: docs/DESKTOP-APPS-DESIGN.md
       - text: "Candidates"
         href: CANDIDATE-MEMBERS.md
       - text: "Roadmap"

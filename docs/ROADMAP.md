@@ -94,8 +94,31 @@ observation (standing apart can be an out-of-the-box answer *or* a thin one),
 - **Cross-artefact consistency** (consumer layer, built on Phase 2 vectors): does the video narration match the report? code match the reflection?
 - **Framing rename** (schema-touching, own release): provenance `ai_generation_marker` → neutral authoring-tool/producer observation (the *blurb* is already neutralised in the README + table generator; the schema field rename is the remaining work)
 - [x] **Umbrella rendered site** — DONE 2026-06-13. Quarto website over the existing markdown (no restructuring; Quarto was already in the toolchain). `_quarto.yml` + `index.qmd` (includes README, single source) + `.github/workflows/publish.yml` (render → Pages on push to main, Actions source). **Live: https://michael-borck.github.io/lens-analysers/**
-- **Cookbook repo** (`lens-cookbook`): end-to-end multi-tool use cases + shared mock cohorts (sample PDF/audio/video/code), reused by assessment-lens, assessment-bench, and demos — **next**
+- [x] **Cookbook repo** (`lens-cookbook`) — DONE 2026-06-15. Executable Quarto book; recipes use the uniform `from <pkg> import analyse` surface; pinned PyPI; `freeze` + local-render-then-publish. **Live: https://michael-borck.github.io/lens-cookbook/**
 - auto-analyser: add cascade rules beyond image→diagram; validate preset member signal-richness
+
+---
+
+## Phase 5 — Desktop apps for non-technical users (Electron, privacy-first, local)
+
+Two install-and-run desktop apps (no CLI) for educators, processing student
+submissions **fully locally** for privacy, with a **local LLM via Ollama**.
+All submission types day one; models bundled (offline); heavy packages
+(torch/ffmpeg) installed first-run into an app-local dir. **assessment-lens app
+first** (establishes the scaffold), **assessment-bench app second** (mostly UI —
+its backend is ready). Reconnaissance done: every hard piece already exists in
+sibling apps (talk-buddy = Python sidecar + first-run model install; insight/
+career-compass = Ollama flow; document-lens = security; all five = identical
+electron-builder/notarize/updater). See the desktop-app-patterns memory.
+
+Sequence: **(a) prereqs → (b) design doc → (c) scaffold → app #1 → app #2.**
+
+- [ ] **(a) assessment-lens HTTP API** — add `serve` + `api.py` + manifest + `serve` extra (it's CLI-only today; the #1 blocker). **← in progress**
+- [ ] **(a) assessment-lens local LLM provider** — add Ollama/OpenAI-compatible to `llm.py` (currently Anthropic-only; defeats the privacy goal otherwise).
+- [ ] **(b) Design doc** — the two-app plan + the `lens-desktop` template (sidecar manager, OllamaSetupCard, settings/secure-storage, electron-builder/notarize, first-run installer incl. a **Windows PowerShell** equivalent of talk-buddy's bash `setup.sh`).
+- [ ] **(c) `lens-desktop` template** — GitHub *template* repo extracted from career-compass + talk-buddy; apps start from it but stay self-contained (the apps are currently copy-paste siblings → drift; a template fixes that).
+- [ ] **App #1: assessment-lens desktop** (sidecar via talk-buddy pattern, Ollama via insight-lens, security via document-lens).
+- [ ] **App #2: assessment-bench desktop** (from the template; backend already has serve + api.py + Ollama).
 
 ---
 
