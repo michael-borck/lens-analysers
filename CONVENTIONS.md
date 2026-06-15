@@ -38,11 +38,39 @@ spec that `lens-contract` — and non-Python members like cite-sight — impleme
 
 ## Python API
 
+Every member exposes the **same canonical surface** from its top-level package,
+all listed in `__all__`:
+
 ```python
-from name_analyser import NameAnalyser, NameAnalysis
-result = NameAnalyser().analyse(input)   # returns a pydantic model
-print(result.model_dump_json(indent=2))
+from name_analyser import NameAnalyser, NameAnalysis, analyse, MANIFEST, __version__
+
+result = NameAnalyser().analyse(input)   # the class…
+result = analyse(input)                   # …or the module-level convenience fn
+print(result.model_dump_json(indent=2))   # result is a pydantic model where one exists
 ```
+
+- **`NameAnalyser`** — the engine class with `.analyse(...)`. Members that predate
+  this (e.g. document-analyser, git-analyser) expose a thin facade class that wraps
+  their existing function; the wrap adds no behaviour.
+- **`analyse(input, …)`** — a module-level convenience function mirroring the class's
+  `.analyse` signature. `analyse(x)` == `NameAnalyser().analyse(x)`.
+- **`NameAnalysis`** — the pydantic result model. Where the internal model has a
+  different name it is exported under that name *and* aliased to `NameAnalysis`
+  (e.g. speech-analyser exports `AudioAnalysis` + `SpeechAnalysis`). A few members
+  whose `.analyse` historically returns a plain `dict` keep doing so — the model is
+  still exported as the documented result type.
+- **`MANIFEST`**, **`__version__`** — always exported.
+- The base exception (`NameAnalyserError`) is exported where one exists.
+
+Orchestrators (auto-analyser, bundle-analyser) follow the same surface: `analyse()`
++ `MANIFEST` + `__version__`, plus their primary class (`Router`/`AutoAnalyser`,
+`BundleAnalyser`). document-analyser additionally keeps re-exporting the family's
+canonical text extractor, `extract_text`.
+
+> The *contract* surfaces are the CLI, HTTP, and MANIFEST (below); the Python
+> surface above is the in-process convenience. Input types legitimately vary by
+> modality (path, text, bytes, URL) — the *names* are uniform, the argument is each
+> member's natural input.
 
 ## CLI
 
