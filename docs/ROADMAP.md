@@ -96,6 +96,7 @@ observation (standing apart can be an out-of-the-box answer *or* a thin one),
 - [x] **Umbrella rendered site** — DONE 2026-06-13. Quarto website over the existing markdown (no restructuring; Quarto was already in the toolchain). `_quarto.yml` + `index.qmd` (includes README, single source) + `.github/workflows/publish.yml` (render → Pages on push to main, Actions source). **Live: https://michael-borck.github.io/lens-analysers/**
 - [x] **Cookbook repo** (`lens-cookbook`) — DONE 2026-06-15. Executable Quarto book; recipes use the uniform `from <pkg> import analyse` surface; pinned PyPI; `freeze` + local-render-then-publish. **Live: https://michael-borck.github.io/lens-cookbook/**
 - auto-analyser: add cascade rules beyond image→diagram; validate preset member signal-richness
+- **`guide-analyser` (new member, from video-to-guide)** — assess a student-authored *guide* (walkthrough artifact: `guide.json` + frames, cf. Tango/Scribe category) for structure/pacing/coverage. Schema owned by the vtg repo; analyser reads only the frozen schema, never the tool. Extension-routable via a `.guide` container. Full sketch: `video-to-guide-app-spec.md` §12 (vtg repo). Start when the vtg schema stabilises in real use.
 
 ---
 
